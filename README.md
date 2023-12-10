@@ -14,7 +14,7 @@
 
 ### Screenshot do site
 
-![Screenshot]('/src/assets/img/screenshot.png')
+![Screenshot](/src/assets/img/screenshot.png)
 
 ### Links
 
