@@ -1,0 +1,72 @@
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/* Estilos do card */
+
+.slider-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    width: 260px;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: .3s;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagem do card */
+
+.slider-image {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slider-image img {
+    width: 100%;
+    transition: .3s ease-in-out;
+    min-height: 100%;
+}
+
+.slider-card:hover .slider-image img {
+    scale: 1.1;
+}
+
+/* Informações do card */
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.slider-price {
+    font-weight: 700;
+    font-size: 20px;
+    color: #00D878;
+}
+
+.slider-title {
+    font-size: 17px;
+    opacity: .8;
+}
+
+@media screen and (max-width: 850px) {
+    .slider-card {
+        flex: 1;
+    }    
+}
+
+
+@media screen and (max-width: 450px) {
+    .slider-card {
+        width: 100%;
+    }
+}

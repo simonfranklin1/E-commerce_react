@@ -1,0 +1,83 @@
+.checkout {
+    padding-top: 130px;
+    padding-bottom: 30px;
+    background-color: #f7f7f7;
+}
+
+.checkout form {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.title {
+    margin-bottom: .5rem;
+    font-weight: 700;
+}
+
+.checkout section {
+    width: 380px;
+    height: 500px;
+    padding: 20px 15px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.705);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 7px;
+    text-align: left;
+}
+
+.form label p {
+    font-weight: 700; 
+    margin-bottom: .5rem;  
+    font-size: .875rem; 
+}
+
+.form label input {
+    padding: .5rem;
+    border-radius: 5px;
+    border: 1px solid rgb(154, 157, 161);
+    width: 100%;
+}
+
+.flex-form {
+    display: flex;
+    align-items: center;
+}
+
+.flex-form .form {
+    width: 50%;
+}
+
+.bag-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bag-price {
+    text-align: left;
+}
+
+.bag-price span {
+    font-weight: 700;
+}
+
+@media (max-width: 450px) {
+    form {
+        padding: 10px;
+    }
+
+    .checkout section {
+        min-width: 330px;
+        min-height: 450px;
+        padding: 20px 15px;
+    } 
+}

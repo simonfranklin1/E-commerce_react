@@ -1,0 +1,34 @@
+.checkout-card {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+    padding-bottom: .5rem;
+    gap: .8rem;
+    position: relative;
+}
+
+.checkout-card:last-child {
+    border-bottom: none;
+}
+
+.checkout-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+}
+
+.checkout_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 14px;
+    text-align: left;
+}
+
+.checkout_info .item-title {
+    font-weight: 700;
+}
+
+.checkout_info .item-size {
+    opacity: .7;
+}

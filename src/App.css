@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 150px 20px 50px;
+}
+
+.container_title {
+    font-size: 20px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.container_title span {
+    font-weight: 700;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+@media (max-width: 850px) {
+    .container {
+        padding: 140px 20px 50px;
+    }
+}

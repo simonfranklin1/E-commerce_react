@@ -1,0 +1,26 @@
+.orders .checkout-card {
+    width: 100%;
+    padding: .5rem;
+}
+
+.orders .item-title {
+    font-weight: 700;
+}
+
+.orders .checkout-image {
+    width: 30%;
+    height: 30%;
+}
+
+.orders .checkout_info {
+    justify-content: flex-start;
+    gap: .3rem;
+    font-size: 13px;
+    padding: .1rem;
+}
+
+.date-order p {
+    font-weight: 700;
+    margin-bottom: .3rem;
+    margin-left: .5rem;
+}

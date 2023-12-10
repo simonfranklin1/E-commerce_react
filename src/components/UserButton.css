@@ -1,0 +1,19 @@
+.user-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    padding: 5px;
+    background: none;
+    border: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.user-btn svg {
+    transition: .2s ease-in-out;
+}
+
+.user-btn:hover svg {
+    scale: 1.1;
+}

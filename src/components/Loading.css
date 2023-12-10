@@ -1,0 +1,20 @@
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 150px 0px 90px;
+}
+
+.loading svg {
+    animation: girar 1s infinite;
+    scale: 1.3;
+}   
+
+@keyframes girar {
+    from {
+        transform: rotate(0);
+    }
+     to {
+        transform: rotate(360deg);
+     }
+}

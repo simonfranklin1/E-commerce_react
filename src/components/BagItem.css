@@ -1,0 +1,78 @@
+/* Container do item */
+
+.bag-card {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+    padding-bottom: 15px;
+    gap: .5rem;
+    position: relative;
+}
+
+.bag-card:last-child {
+    border-bottom: none;
+}
+
+/* Imagem do produto */
+
+.bag-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+}
+
+/* Informações do produto */
+
+.bag_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 14px;
+    max-width: 160px;
+}
+
+.item-title {
+    font-weight: 700;
+}
+
+.bag-card button {
+    background: none;
+    border: none;
+}
+
+.item-size {
+    opacity: .7;
+}
+
+.item-price {
+    color: #00D878;
+    font-weight: 700;
+}
+
+.quantity-items {
+    display: flex;
+    gap: .3rem;
+    align-items: center;
+    position: absolute;
+    bottom: 15%;
+    right: 0;
+    font-size: 18px;
+}
+
+.quantity-items button, .delete-item{
+    font-size: 18px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.delete-item {
+    position: absolute;
+    top: 1%;
+    right: 0;
+    opacity: .7;
+    transition: .2s;
+}
+
+.delete-item:hover {
+    opacity: 1;
+}

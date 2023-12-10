@@ -1,0 +1,30 @@
+.historic {
+    background-color: #fff;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.151);
+}
+
+.historic-header {
+    color: #000000a6;
+    border-bottom: 1px solid #000000a6;
+    padding: .8rem;
+}
+
+.historic-orders {
+    padding: .8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+@media screen and (max-width: 450px) {
+    .historic-orders, .historic-header {
+        padding: .8rem 0;
+    }   
+}
