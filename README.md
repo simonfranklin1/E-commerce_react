@@ -1,5 +1,5 @@
 # E-commerce FS com React
-- E-Commerce feito com React com catálogo, carrinho de compras, checkout e histórico de compras
+- E-Commerce feito com React.js
 
 ### O usuário pode:
 
