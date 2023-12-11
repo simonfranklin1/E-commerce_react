@@ -17,7 +17,7 @@ const Bag = () => {
 
   const goToCheckout = () => {
     if(bagItens.length > 0) {
-      navigate("/comprar");
+      navigate("/checkout");
       setOpenBag(false);
       setCheckout(true);
     } else {

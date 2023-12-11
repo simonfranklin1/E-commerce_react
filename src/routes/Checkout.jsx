@@ -46,7 +46,7 @@ const Checkout = () => {
         saveLocalStorage("historic", [orderPlaced, ...historic]);
         setBagItens([]);
         removeLocalStorage("bag");
-        navigate("/produtos");
+        navigate("/");
         setCheckout(false)
     }
 

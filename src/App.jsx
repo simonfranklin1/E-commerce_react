@@ -2,18 +2,25 @@ import { useContext } from 'react'
 import './App.css'
 import Bag from './components/Bag'
 import Header from './components/Header'
-import Home from "./routes/Home.jsx"
-import { Outlet } from 'react-router-dom'
-import { StoreContext } from './context/StoreContext.jsx'
+import { Route, Routes } from 'react-router-dom'
+import { Home, Checkout, Historic, Men, ProductPage, Products, Search, Women } from './routes'
 
 function App() {
-  const {start} = useContext(StoreContext)
 
   return (
     <div className="App">
       <Bag />
       <Header />
-      <Outlet />
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route path='/produtos' element={<Products />} />
+        <Route path="/produtos/:id" element={<ProductPage />}  />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/masculino" element={<Men />} />
+        <Route path="/feminino" element={<Women />} />
+        <Route path="/buscar" element={<Search />} />
+        <Route path="/historico" element={<Historic />} />
+      </Routes>
     </div>
   )
 }
