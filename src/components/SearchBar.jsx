@@ -26,7 +26,7 @@ const SearchBar = () => {
           <BsSearch />
         </span>
         <input 
-          type="search" 
+          type="text" 
           placeholder='Oque você está procurando?'
           name='search-input' 
           value={search} 

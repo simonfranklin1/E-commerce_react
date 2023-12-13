@@ -10,7 +10,7 @@ a {
     flex-direction: column;
     gap: 10px;
     padding: 20px;
-    width: 260px;
+    width: 270px;
     height: 100%;
     overflow: hidden;
     margin: 0 auto;
@@ -56,17 +56,4 @@ a {
 .slider-title {
     font-size: 17px;
     opacity: .8;
-}
-
-@media screen and (max-width: 850px) {
-    .slider-card {
-        flex: 1;
-    }    
-}
-
-
-@media screen and (max-width: 450px) {
-    .slider-card {
-        width: 100%;
-    }
 }

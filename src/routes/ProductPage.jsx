@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import {BsFillBagFill} from "react-icons/bs"
 import "./ProductPage.css"
 import { fetchUrl, formatCurrency, saveLocalStorage } from '../utilities/utilities'
-import Images from '../components/Images'
+import Images from '../components/ProductPageSlider'
 
 const ProductPage = () => {
     const { id } = useParams();

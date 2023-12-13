@@ -4,11 +4,12 @@ import Bag from './components/Bag'
 import Header from './components/Header'
 import { Route, Routes } from 'react-router-dom'
 import { Home, Checkout, Historic, Men, ProductPage, Products, Search, Women } from './routes'
+import Footer from './components/Footer'
 
 function App() {
 
   return (
-    <div className="App">
+    <div className="App" style={{minHeight: '100vh'}}>
       <Bag />
       <Header />
       <Routes>
@@ -20,7 +21,8 @@ function App() {
         <Route path="/feminino" element={<Women />} />
         <Route path="/buscar" element={<Search />} />
         <Route path="/historico" element={<Historic />} />
-      </Routes>
+      </Routes> 
+      <Footer />
     </div>
   )
 }

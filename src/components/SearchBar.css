@@ -16,7 +16,7 @@
 
 /* input */
 
-.search-bar input[type="search"] {
+.search-bar input[type="text"] {
     border: none;
     background: none;
     flex: 1;

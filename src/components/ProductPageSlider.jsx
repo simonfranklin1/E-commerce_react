@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "./Images.css"
+import "./ProductPageSlider.css"
 import {MdArrowForwardIos} from "react-icons/md"
 import {MdArrowBackIosNew} from "react-icons/md"
 

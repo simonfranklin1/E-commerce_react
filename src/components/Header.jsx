@@ -19,7 +19,7 @@ const Header = () => {
             setCheckout(false);
         }
 
-        navigate("/produtos");
+        navigate("/");
     }
 
   return (
@@ -40,7 +40,7 @@ const Header = () => {
                         <p className='mobile_link'>Masculino</p>
                     </Link>
                     <Link to={"/feminino"} onClick={() => setToggleMenu(false)}>
-                        <p className='mobile_link'>feminino</p>
+                        <p className='mobile_link'>Feminino</p>
                     </Link>
                 </div>
             </div>
@@ -71,13 +71,13 @@ const Header = () => {
                 <p className='link'>Início</p>
             </Link>
             <Link to={"/produtos"}>
-                <p className='link'>Todos</p>
+                <p className='link'>Produtos</p>
             </Link>
             <Link to={"/masculino"}>
                 <p className='link'>Masculino</p>
             </Link>
             <Link to={"/feminino"}>
-                <p className='link'>feminino</p>
+                <p className='link'>Feminino</p>
             </Link>
         </div>
     </header>
