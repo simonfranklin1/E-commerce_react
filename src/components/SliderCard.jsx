@@ -14,13 +14,13 @@ const SliderCard = ({data}) => {
 
   return (
     <Link to={`/produtos/${id}`}>
-      <div className={`slider-card ${ women? 'women' : 'male' }`}>
-            <div className="product-image">
+      <div className={`slider_card ${ women? 'women' : 'male' }`}>
+            <div className="slider_card-image">
               <img src={thumbnail[0]} alt={`Image product-` + id} />
             </div>
             <div className="info">
-              <p className="product-title">{`${title} | ${brand}`}</p>
-              <p className="product-price">{formatCurrency(price, 'BRL')}</p>
+              <p className="slider_card-title">{`${title} | ${brand}`}</p>
+              <p className="slider_card-price">{formatCurrency(price, 'BRL')}</p>
             </div>
       </div>
     </Link>

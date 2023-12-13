@@ -1,13 +1,19 @@
 import { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '../context/StoreContext'
 import Loading from '../components/Loading'
-import { useParams } from 'react-router-dom'
-import {BsFillBagFill} from "react-icons/bs"
+import { useParams, Navigate, useNavigate } from 'react-router-dom'
+import { BsFillBagFill } from "react-icons/bs"
 import "./ProductPage.css"
 import { fetchUrl, formatCurrency, saveLocalStorage } from '../utilities/utilities'
 import Images from '../components/ProductPageSlider'
 
 const ProductPage = () => {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    })
+    
     const { id } = useParams();
     const { url, loading, setLoading, bagItens, setBagItens } = useContext(StoreContext);
 

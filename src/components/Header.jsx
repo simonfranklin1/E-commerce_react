@@ -23,7 +23,7 @@ const Header = () => {
     }
 
   return (
-    <header className={checkout ? "absolute" : ""}>
+    <header className={checkout ? "absolute" : ""} id="header">
         <div className="menu_mobile-background" style={ toggleMenu ? { display: 'block'} : {display: 'none'}} />
         <div className="menu_mobile-container" style={ toggleMenu ? { left: '0'} : {left: '-100%'}} >
                 <div className="close_menu-mobile" onClick={() => setToggleMenu(false)}>

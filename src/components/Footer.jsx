@@ -36,7 +36,7 @@ const Footer = () => {
                 <FaInstagram />
                 <FaTwitter />
             </div>
-            <p>Todos os direitos reservados a &copy;FStore 2023</p>
+            <p>Todos os direitos reservados &copy;Copyright 2023</p>
         </div>
     </footer>
   )

@@ -20,19 +20,22 @@ footer {
 .footer_content-section {
     flex: 1;
     max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .footer_section-title {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 20px;
 }
 
 .footer_section-text {
-    font-size: 17px;
+    font-size: 15px;
 }
 
 .footer_section-text span {
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .footer_bottom {
@@ -51,19 +54,28 @@ footer {
     font-size: 30px;
 }
 
+.footer_bottom-icons svg {
+    transition: .2s;
+    cursor: pointer;
+}
+
+.footer_bottom-icons svg:hover {
+    scale: 1.1;
+}
+
 .footer_content-section form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 1rem;
     margin-top: 1rem;
+    width: 85%;
+    padding: 0;
 }
 
 .footer_content-section form input[type="text"] {
     padding: .5rem 1.3rem;
     background-color: #fff;
     border-radius: 20px;
-    width: 100%;
     outline: none;
 }
 
@@ -73,7 +85,6 @@ footer {
     color: #fff;
     border: 1px solid #fff;
     border-radius: 20px;
-    width: 100%;
     cursor: pointer;
     transition: .3s;
 }

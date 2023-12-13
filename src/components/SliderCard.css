@@ -5,7 +5,7 @@ a {
 
 /* Estilos do card */
 
-.slider-card {
+.slider_card {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -23,19 +23,15 @@ a {
 
 /* Imagem do card */
 
-.slider-image {
+.slider_card-image {
     overflow: hidden;
     border-radius: 10px;
 }
 
-.slider-image img {
+.slider_card-image img {
     width: 100%;
     transition: .3s ease-in-out;
     min-height: 100%;
-}
-
-.slider-card:hover .slider-image img {
-    scale: 1.1;
 }
 
 /* Informações do card */
@@ -47,13 +43,13 @@ a {
     gap: 1rem;
 }
 
-.slider-price {
+.slider_card-price {
     font-weight: 700;
     font-size: 20px;
     color: #00D878;
 }
 
-.slider-title {
+.slider_card-title {
     font-size: 17px;
     opacity: .8;
 }
