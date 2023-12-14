@@ -28,6 +28,7 @@ footer {
 .footer_section-title {
     font-weight: 700;
     font-size: 20px;
+    margin-bottom: .8rem;
 }
 
 .footer_section-text {
@@ -60,7 +61,7 @@ footer {
 }
 
 .footer_bottom-icons svg:hover {
-    scale: 1.1;
+    scale: 1.05;
 }
 
 .footer_content-section form {

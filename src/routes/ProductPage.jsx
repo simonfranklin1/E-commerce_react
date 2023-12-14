@@ -1,19 +1,15 @@
 import { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '../context/StoreContext'
 import Loading from '../components/Loading'
-import { useParams, Navigate, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { BsFillBagFill } from "react-icons/bs"
 import "./ProductPage.css"
 import { fetchUrl, formatCurrency, saveLocalStorage } from '../utilities/utilities'
 import Images from '../components/ProductPageSlider'
+import ChooseSize from '../components/ChooseSize'
 
 const ProductPage = () => {
-    window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-    })
-    
+
     const { id } = useParams();
     const { url, loading, setLoading, bagItens, setBagItens } = useContext(StoreContext);
 
@@ -24,6 +20,12 @@ const ProductPage = () => {
         fetchUrl(url + `/${id}`).then((response) => {
             setProduct(response)
             setLoading(false)
+        })
+
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
         })
     }, []);
 
@@ -83,16 +85,8 @@ const ProductPage = () => {
                                     <div className="actual-price"> {formatCurrency(product.preco,'BRL')}</div>
                                 </div>
                     </div>
-                    <div className="choose-size">
-                        <p>Tamanho: {size || <span className='size-message'>Escolha um tamanho, por favor</span>}  </p>
-                        <div className="size">
-                            <button className='size-btn' onClick={handleSize}>PP</button>
-                            <button className='size-btn' onClick={handleSize}>P</button>
-                            <button className='size-btn' onClick={handleSize}>M</button>
-                            <button className='size-btn' onClick={handleSize}>GG</button>
-                            <button className='size-btn' onClick={handleSize}>G2</button>
-                        </div>
-                    </div>
+                    
+                    <ChooseSize size={size} handleSize={handleSize} />
 
                     <div className="add-to-cart">
                         <button className="add-cart-btn" onClick={handleItem} >
