@@ -86,15 +86,15 @@ const ProductPage = () => {
                     </div>
                     
                     <div className="choose-size">
-        <p>Tamanho: {size || <span className='size-message'>Escolha um tamanho, por favor</span>}  </p>
-        <div className="size">
-            <button className='size-btn' onClick={handleSize}>PP</button>
-            <button className='size-btn' onClick={handleSize}>P</button>
-            <button className='size-btn' onClick={handleSize}>M</button>
-            <button className='size-btn' onClick={handleSize}>GG</button>
-            <button className='size-btn' onClick={handleSize}>G2</button>
-        </div>
-    </div>
+                        <p>Tamanho: {size || <span className='size-message'>Escolha um tamanho, por favor</span>}  </p>
+                        <div className="size">
+                            <button className='size-btn' onClick={handleSize}>PP</button>
+                            <button className='size-btn' onClick={handleSize}>P</button>
+                            <button className='size-btn' onClick={handleSize}>M</button>
+                            <button className='size-btn' onClick={handleSize}>GG</button>
+                            <button className='size-btn' onClick={handleSize}>G2</button>
+                        </div>
+                    </div>
 
                     <div className="add-to-cart">
                         <button className="add-cart-btn" onClick={handleItem} >

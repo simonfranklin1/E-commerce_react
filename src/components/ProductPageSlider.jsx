@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./ProductPageSlider.css"
-import {MdArrowForwardIos} from "react-icons/md"
-import {MdArrowBackIosNew} from "react-icons/md"
+import { MdArrowForwardIos } from "react-icons/md"
+import { MdArrowBackIosNew } from "react-icons/md"
 
 const Images = ({arr, id}) => {
 
