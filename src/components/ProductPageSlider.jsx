@@ -41,7 +41,7 @@ const Images = ({arr, id}) => {
             </div>
         </div>
         <ul className="image-buttons">
-            <li onClick={(e) => changeImage(e, 0)} ><img className="image-btn selected-image" src={arr[0]} alt={`Imagem produto ${id}/1`}/></li>
+            <li className="selected-image" onClick={(e) => changeImage(e, 0)}><img className="image-btn" src={arr[0]} alt={`Imagem produto ${id}/1`}/></li>
             <li onClick={(e) => changeImage(e, 1)}><img className="image-btn" src={arr[1]} alt={`Imagem produto ${id}/2`} /></li>
             <li onClick={(e) => changeImage(e, 2)}><img className="image-btn" src={arr[2]} alt={`Imagem produto ${id}/3`} /></li>
             <li onClick={(e) => changeImage(e, 3)}><img className="image-btn" src={arr[3]} alt={`Imagem produto ${id}/4`} /></li>

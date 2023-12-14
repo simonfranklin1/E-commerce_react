@@ -6,7 +6,6 @@ import { BsFillBagFill } from "react-icons/bs"
 import "./ProductPage.css"
 import { fetchUrl, formatCurrency, saveLocalStorage } from '../utilities/utilities'
 import Images from '../components/ProductPageSlider'
-import ChooseSize from '../components/ChooseSize'
 
 const ProductPage = () => {
 
@@ -86,7 +85,16 @@ const ProductPage = () => {
                                 </div>
                     </div>
                     
-                    <ChooseSize size={size} handleSize={handleSize} />
+                    <div className="choose-size">
+        <p>Tamanho: {size || <span className='size-message'>Escolha um tamanho, por favor</span>}  </p>
+        <div className="size">
+            <button className='size-btn' onClick={handleSize}>PP</button>
+            <button className='size-btn' onClick={handleSize}>P</button>
+            <button className='size-btn' onClick={handleSize}>M</button>
+            <button className='size-btn' onClick={handleSize}>GG</button>
+            <button className='size-btn' onClick={handleSize}>G2</button>
+        </div>
+    </div>
 
                     <div className="add-to-cart">
                         <button className="add-cart-btn" onClick={handleItem} >

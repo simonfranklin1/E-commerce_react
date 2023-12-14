@@ -66,6 +66,45 @@
     font-size: 12px;
 }
 
+.choose-size {
+    margin-bottom: 1rem;
+}
+
+.size {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.size-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65px;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.377);
+    background: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.size-btn:hover {
+    border-color: #0076FF;
+}
+
+.select-size {
+    border: 3px solid #0076FF;
+    background-color: #0077ff1f;
+}
+
+.size-message {
+    display: none;
+    font-weight: 700;
+    font-size: 15px;
+}
+
 .add-cart-btn {
     background-color: rgb(26, 26, 26);
     color: #fff;
@@ -137,6 +176,10 @@
     .page-title {
         font-size: 30px;
         line-height: 35px;
+    }
+
+    .size {
+        justify-content: space-between;
     }
 
     .add-cart-btn {

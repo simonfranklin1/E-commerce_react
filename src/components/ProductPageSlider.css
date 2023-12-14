@@ -53,11 +53,18 @@
     width: 100%;
 }
 
-.image-btn {
+.image-buttons li {
+    border-radius: 10px;
+    overflow: hidden;
     width: 80px;
     height: 80px;
-    border-radius: 10px;
     cursor: pointer;
+}
+
+.image-btn {
+    height: 100%; 
+    width: 100%;    
+    pointer-events: none;
 }
 
 .image-btn:hover {
@@ -74,7 +81,7 @@
         position: relative;
     }
 
-    .image-buttons li img{
+    .image-btn{
         display: none;
     }
 
