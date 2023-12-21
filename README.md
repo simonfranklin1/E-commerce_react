@@ -14,7 +14,7 @@
 
 ### Screenshot do site
 
-![Screenshot](/src/assets/img/foto%20franklin-store.png)
+![Screenshot](/src/assets/img/screenshot-fs-store.png)
 
 ### Links
 
