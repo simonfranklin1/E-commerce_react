@@ -1,4 +1,4 @@
-# E-commerce FS com React
+# E-commerce FS
 - E-Commerce feito com React.js
 
 ### O usuário pode:
@@ -7,7 +7,7 @@
 - Buscar produtos na barra de pesquisa
 - Ver um layout diferente para cada tamanho de tela
 - Adicionar produtos no carrinho, aumentar e diminuir sua quantidade
-    - Ver Validações caso não escolha um tamanho
+    - Ver validações caso não tenha escolhido um tamanho de roupa
 - Ir para o checkout e finalizar sua compra
     - Ver validações no formulário caso os campos não estejam preenchidos
 - Ver um histórico de compras
