@@ -1,10 +1,8 @@
 import { useEffect, useState, useContext } from "react"
-import "./Products.css"
 import ProductCard from "../components/ProductCard";
 import { StoreContext } from "../context/StoreContext";
 import Loading from "../components/Loading";
 import { fetchUrl } from "../utilities/utilities";
-import HomeImage from '../assets/img/Imagem Home Franklin Store.png'
 
 
 const Products = () => {

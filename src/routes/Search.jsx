@@ -4,7 +4,6 @@ import { useContext, useState, useEffect } from 'react';
 import { StoreContext } from '../context/StoreContext';
 import { fetchUrl } from '../utilities/utilities';
 import ProductCard from '../components/ProductCard';
-import "./Search.css"
 
 const Search = () => {
   const [searchParams] = useSearchParams();
@@ -29,7 +28,7 @@ const Search = () => {
         <section className='container'>
           <p className="container_title">Resultados para: <span>{query}</span></p>
           {products.length > 0 ? (
-            <div className="search-container">
+            <div className="products-container">
               {products.map((product) => <ProductCard key={product.id} data={{title: product.nome, thumbnail: product.imagem, brand: product.marca, women: product.feminino, id: product.id, price: product.preco}}/>)}
             </div>
           ) : (
