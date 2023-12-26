@@ -32,7 +32,11 @@
     width: 100%;
     overflow-x: hidden;
     gap: 30px;
+<<<<<<< HEAD
     padding: 1.3rem;
+=======
+    padding: 1.5rem 1rem;
+>>>>>>> 8bf16800da6457a810211c19b77fe873c14ff617
     scroll-behavior: smooth;
 }
 
