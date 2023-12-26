@@ -1,5 +1,5 @@
-import CheckoutItem from "./CheckoutItem"
-import "./historicCard.css"
+import CheckoutItem from "./CheckoutItem";
+import "./HistoricCard.css";
 
 const HistoricCard = ({data}) => {
     const { orderDate, order } = data; 

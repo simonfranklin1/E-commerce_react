@@ -1,7 +1,8 @@
-import React from 'react'
-import {BsBag} from 'react-icons/bs'
-import { useContext } from 'react'
-import { StoreContext } from '../context/StoreContext'
+import React from 'react';
+import {BsBag} from 'react-icons/bs';
+import { useContext } from 'react';
+import { StoreContext } from '../context/StoreContext';
+import "./BagButton.css";
 
 
 const BagButton = () => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import "./CheckoutItem.css";
 
 const CheckoutItem = ({data}) => {

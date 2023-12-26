@@ -1,4 +1,4 @@
-import "./ProductCard.css"
+import "./ProductCard.css";
 import { Link } from "react-router-dom";
 import { formatCurrency } from "../utilities/utilities";
 
