@@ -3,7 +3,6 @@ import {BsBag} from 'react-icons/bs'
 import { useContext } from 'react'
 import { StoreContext } from '../context/StoreContext'
 
-import "./BagButton.css"
 
 const BagButton = () => {
   const { setOpenBag, bagItens } = useContext(StoreContext)
