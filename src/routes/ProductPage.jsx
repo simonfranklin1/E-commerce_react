@@ -16,7 +16,7 @@ const ProductPage = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetchUrl(url + `/${id}`).then((response) => {
+        fetchUrl(url + `/products/${id}`).then((response) => {
             setProduct(response)
             setLoading(false)
         })
@@ -32,11 +32,11 @@ const ProductPage = () => {
 
     const itemData = {
         id: product.id,
-        title: product.nome,
-        price: product.preco,
+        title: product.name,
+        price: product.price,
         quantity: 1,
-        thumbnail: product.imagem,
-        brand: product.marca,
+        thumbnail: product.thumbnail,
+        brand: product.brand,
         size: size
     }
 
@@ -67,21 +67,23 @@ const ProductPage = () => {
     }
 
   return (
-    (loading.imagem && <Loading />) || (!product.imagem && <Loading />) || (
+    (!product.thumbnail && <Loading />) || (
         <section className="container-product-page">
             <div className="product-page">
-                    <Images arr={product.imagem} id={product.id} />
+                    <Images thumbnail={product.thumbnail} id={product.id} />
                 <div className="info-buy">
                     <p className="page-title">
-                        {product.nome}
+                        {product.name}
                     </p>
+
                     <div className="brand">
-                        {product.marca}
+                        {product.brand}
                     </div>
+
                     <div className="price-info">
                         Preço: <div className="price">
-                                    <div className="past-price"> de {formatCurrency(product.preco * 1.5, 'BRL')}</div>
-                                    <div className="actual-price"> {formatCurrency(product.preco,'BRL')}</div>
+                                    <div className="past-price"> de {formatCurrency(product.price * 1.5, 'BRL')}</div>
+                                    <div className="actual-price"> {formatCurrency(product.price,'BRL')}</div>
                                 </div>
                     </div>
                     

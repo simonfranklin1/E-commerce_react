@@ -8,7 +8,7 @@ export const StoreContext = createContext();
 export const StoreContextProvider = ({children}) => {
     const [ openBag, setOpenBag ] = useState(false);
 
-    const [ url, setUrl ] = useState("https://heliotrope-exultant-hisser.glitch.me/catalogo");
+    const [ url, setUrl ] = useState("https://api-franklinstore.vercel.app");
 
     const [ loading, setLoading ] = useState(true);
 

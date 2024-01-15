@@ -13,7 +13,7 @@ const Home = () => {
     setLoading(true);
 
     const getData = async() => {
-      const res = await fetch(url);
+      const res = await fetch(url + '/products');
       const data = await res.json();
 
       return data;

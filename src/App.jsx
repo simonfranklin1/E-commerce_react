@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import './App.css'
 import Bag from './components/Bag'
 import Header from './components/Header'

@@ -29,12 +29,12 @@ const ProductsSection = ({products, title, category}) => {
             <div className="products_section-slider" ref={sliderRef}>
                 {
                     category === 'feminino' && products.map((product) => (
-                        product.feminino ? <SliderCard key={product.id} data={{title: product.nome, thumbnail: product.imagem, brand: product.marca, women: product.feminino, id: product.id, price: product.preco}} /> : ''
+                        product.women ? <SliderCard key={product.id} data={{title: product.name, ...product}} /> : ''
                     ))
                 }
                 {
                     category === 'masculino' && products.map((product) => (
-                        product.feminino ? '' : <SliderCard key={product.id} data={{title: product.nome, thumbnail: product.imagem, brand: product.marca, women: product.feminino, id: product.id, price: product.preco}} />
+                        product.women ? '' : <SliderCard key={product.id} data={{title: product.name, ...product}} />
                     ))
                 }
             </div>

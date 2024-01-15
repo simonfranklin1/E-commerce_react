@@ -12,7 +12,7 @@ const Products = () => {
   useEffect(() => {
     setLoading(true);
 
-    fetchUrl(url).then((response) => {
+    fetchUrl(url + '/products').then((response) => {
       setProducts(response);
       setLoading(false);
     })
@@ -25,7 +25,7 @@ const Products = () => {
           <p className="container_title">Todos os Produtos</p>
           <div className="products-container">
             {products && products.map((product) => (
-              <ProductCard key={product.id} data={{title: product.nome, thumbnail: product.imagem, brand: product.marca, women: product.feminino, id: product.id, price: product.preco}}></ProductCard>
+              <ProductCard key={product.id} data={{title: product.name, ...product}}></ProductCard>
             ))}
           </div>
         </section>
