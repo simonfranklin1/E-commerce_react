@@ -19,4 +19,4 @@
 ### Links
 
 - Autor: [Simon Franklin](https://github.com/simonfranklin1)
-- Site: [E-commerce](https://simonfranklin1.github.io/E-commerce_react)
+- Site: [E-commerce](https://franklin-store.vercel.app/)
