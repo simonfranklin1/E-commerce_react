@@ -21,6 +21,10 @@ a {
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
+.slider_card:hover {
+    transform: translateY(-10px);
+}
+
 /* Imagem do card */
 
 .slider_card-image {

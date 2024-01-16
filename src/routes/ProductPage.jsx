@@ -1,11 +1,13 @@
-import { useContext, useEffect, useState } from 'react'
-import { StoreContext } from '../context/StoreContext'
-import Loading from '../components/Loading'
-import { useParams } from 'react-router-dom'
-import { BsFillBagFill } from "react-icons/bs"
-import "./ProductPage.css"
-import { fetchUrl, formatCurrency, saveLocalStorage } from '../utilities/utilities'
-import Images from '../components/ProductPageSlider'
+import { useContext, useEffect, useState } from 'react';
+import { StoreContext } from '../context/StoreContext';
+import Loading from '../components/Loading';
+import { useParams } from 'react-router-dom';
+import { BsFillBagFill } from "react-icons/bs";
+import { CiHeart } from "react-icons/ci";
+import { FaLongArrowAltDown } from "react-icons/fa";
+import "./ProductPage.css";
+import { fetchUrl, formatCurrency, saveLocalStorage } from '../utilities/utilities';
+import Carousel from '../components/ProductPageSlider';
 
 const ProductPage = () => {
 
@@ -51,8 +53,7 @@ const ProductPage = () => {
 
     const handleItem = () => {
         if(!size) {
-            document.querySelector(".size-message").style.display = "inline-block"
-            return;
+            document.querySelector(".size-message").style.display = "inline-block";
         } else {
             const alreadyAdded = bagItens.find((item) => item.id === itemData.id && item.size === itemData.size);
             if(alreadyAdded) {
@@ -67,23 +68,25 @@ const ProductPage = () => {
     }
 
   return (
-    (!product.thumbnail && <Loading />) || (
+    (!product.thumbnail && <Loading />) || (loading && <Loading />) || (
         <section className="container-product-page">
             <div className="product-page">
-                    <Images thumbnail={product.thumbnail} id={product.id} />
+                    <Carousel thumbnail={product.thumbnail} id={product.id} />
                 <div className="info-buy">
                     <p className="page-title">
                         {product.name}
                     </p>
 
-                    <div className="brand">
+                    <p className="brand">
                         {product.brand}
-                    </div>
+                    </p>
+
+                    <hr style={{ width: "100%", marginBottom: "1rem", marginTop: "1rem" }} />
 
                     <div className="price-info">
                         Preço: <div className="price">
-                                    <div className="past-price"> de {formatCurrency(product.price * 1.5, 'BRL')}</div>
-                                    <div className="actual-price"> {formatCurrency(product.price,'BRL')}</div>
+                                    <div className="past-price"> de <span>{formatCurrency(product.price * 2, 'BRL')}</span></div>
+                                    <div className="actual-price"> {formatCurrency(product.price,'BRL')} <span className="discount-info"><FaLongArrowAltDown /> -50%</span></div>
                                 </div>
                     </div>
                     
@@ -98,9 +101,13 @@ const ProductPage = () => {
                         </div>
                     </div>
 
-                    <div className="add-to-cart">
+                    <div className="buttons">
                         <button className="add-cart-btn" onClick={handleItem} >
                             Adicionar à Sacola <BsFillBagFill />
+                        </button>
+
+                        <button className="add-favorite-btn">
+                            Adicionar aos favoritos <CiHeart />
                         </button>
                     </div>
                 </div>

@@ -1,5 +1,4 @@
 .images-container {
-    width: 45%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -44,12 +43,14 @@
 .actual-image img {
     width: 100%;
     border-radius: 15px;
+    object-fit: contain;
 }
 
 .image-buttons {
     display: flex;
     list-style-type: none;
     justify-content: space-between;
+    object-fit: contain;
     width: 100%;
 }
 
@@ -77,7 +78,6 @@
 
 @media (max-width: 850px) {
     .images-container {
-        width: 100%;
         position: relative;
     }
 
@@ -110,10 +110,6 @@
 }
 
 @media (max-width: 450px) {
-    .images-container {
-        width: 100%;
-    }
-
     .actual-image img {
         width: 100%;
         border-radius: 0px;
