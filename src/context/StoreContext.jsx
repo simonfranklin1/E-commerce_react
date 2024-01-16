@@ -16,7 +16,7 @@ export const StoreContextProvider = ({children}) => {
 
     const [ historic, setHistoric ] = useState(getLocalStorage("historic") || []);
 
-    const [ start, setStart ] = useState('');
+    const [ favorites, setFavorites ] = useState(getLocalStorage("favorites") || []);
 
     const [ checkout, setCheckout ] = useState('');
 
@@ -31,14 +31,14 @@ export const StoreContextProvider = ({children}) => {
         setLoading,
         bagItens, 
         setBagItens, 
-        start, 
-        setStart,
         checkout,
         setCheckout, 
         historic, 
         setHistoric,
         query, 
-        setQuery
+        setQuery, 
+        favorites, 
+        setFavorites
     }
 
     return (

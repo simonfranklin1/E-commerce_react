@@ -1,4 +1,4 @@
-import Logo from "../assets/img/logo-f-store-2.png";
+import Logo from "../assets/img/franklin-store-logo.png";
 import "./Header.css";
 import BagButton from './BagButton';
 import UserButton from './UserButton';

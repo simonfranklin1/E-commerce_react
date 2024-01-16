@@ -12,7 +12,7 @@ import Carousel from '../components/ProductPageSlider';
 const ProductPage = () => {
 
     const { id } = useParams();
-    const { url, loading, setLoading, bagItens, setBagItens } = useContext(StoreContext);
+    const { url, loading, setLoading, bagItens, setBagItens, favorites, setFavorites } = useContext(StoreContext);
 
     const [ product, setProduct ] = useState({});
 
@@ -51,7 +51,7 @@ const ProductPage = () => {
         element.classList.add('select-size')
     }
 
-    const handleItem = () => {
+    const addToBag = () => {
         if(!size) {
             document.querySelector(".size-message").style.display = "inline-block";
         } else {
@@ -65,6 +65,16 @@ const ProductPage = () => {
                 saveLocalStorage("bag", [...bagItens, itemData]); 
             }
         }    
+    }
+
+    const favoriteItem = () => {
+        const alreadyAdded = favorites.find((item) => item.id === product.id);
+        if(alreadyAdded) {
+            return;
+        } else {
+            setFavorites([itemData, ...favorites]);
+            saveLocalStorage("favorites", [itemData, ...favorites]);
+        }
     }
 
   return (
@@ -102,11 +112,11 @@ const ProductPage = () => {
                     </div>
 
                     <div className="buttons">
-                        <button className="add-cart-btn" onClick={handleItem} >
+                        <button className="add-cart-btn" onClick={addToBag} >
                             Adicionar à Sacola <BsFillBagFill />
                         </button>
 
-                        <button className="add-favorite-btn">
+                        <button className="add-favorite-btn" onClick={favoriteItem}>
                             Adicionar aos favoritos <CiHeart />
                         </button>
                     </div>
