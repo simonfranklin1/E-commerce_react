@@ -15,7 +15,7 @@ const SearchBar = () => {
     e.preventDefault();
     setLoading(true);
 
-    navigate("/buscar?q=" + search);
+    navigate("/search ?q=" + search);
     setSearch('');
     setQuery(search);
   }

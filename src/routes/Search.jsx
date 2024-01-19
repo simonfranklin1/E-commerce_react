@@ -24,14 +24,14 @@ const Search = () => {
 
   return (
     (loading && <Loading />) || (
-        <section className='container'>
+        <section className='container' style={{ position: "relative" }}>
           <p className="container_title">Resultados para: <span>{query}</span></p>
           {products.length > 0 ? (
             <div className="products-container">
               {products.map((product) => <ProductCard key={product.id} data={{title: product.name, ...product}}/>)}
             </div>
           ) : (
-            <p className="not-found" style={{textAlign: 'center', marginTop: '3.5rem'}}>Produto não encontrado.</p>
+            <p className="not-found" style={{ position: "absolute", top: "50%", textAlign: "center", width: "100%"}}>Produto não encontrado.</p>
           )}
         </section>
     )
