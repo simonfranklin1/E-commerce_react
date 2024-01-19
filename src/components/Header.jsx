@@ -10,7 +10,7 @@ import { FiMenu } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
 
 const Header = () => {
-    const { checkout, setCheckout } = useContext(StoreContext);
+    const { checkout, setCheckout, user } = useContext(StoreContext);
     const navigate = useNavigate();
     const [ toggleMenu, setToggleMenu ] = useState(false)
 
@@ -23,28 +23,33 @@ const Header = () => {
     }
 
   return (
-    <header className={checkout ? "absolute" : ""} id="header">
+    <header className={checkout && "header-checkout_active"} id="header">
+        
+        {/* Desktop Background */}
         <div className="menu_mobile-background" style={ toggleMenu ? { display: 'block'} : {display: 'none'}} />
+
+        {/* Desktop Menu */}
         <div className="menu_mobile-container" style={ toggleMenu ? { left: '0'} : {left: '-100%'}} >
-                <div className="close_menu-mobile" onClick={() => setToggleMenu(false)}>
+            <div className="close_menu-mobile" onClick={() => setToggleMenu(false)}>
                     <MdClose />
-                </div>
-                <div className="menu_mobile-container_links">
+            </div>
+            <div className="menu_mobile-container_links">
                     <Link to={"/"} onClick={() => setToggleMenu(false)}>
                         <p className='mobile_link'>Início</p>
                     </Link>
-                    <Link to={"/produtos"} onClick={() => setToggleMenu(false)}>
+                    <Link to={"/products"} onClick={() => setToggleMenu(false)}>
                         <p className='mobile_link'>Produtos</p>
                     </Link>
-                    <Link to={"/masculino"} onClick={() => setToggleMenu(false)}>
+                    <Link to={"/men"} onClick={() => setToggleMenu(false)}>
                         <p className='mobile_link'>Masculino</p>
                     </Link>
-                    <Link to={"/feminino"} onClick={() => setToggleMenu(false)}>
+                    <Link to={"/women"} onClick={() => setToggleMenu(false)}>
                         <p className='mobile_link'>Feminino</p>
                     </Link>
-                </div>
             </div>
-        <div className="header">
+        </div>
+
+        <div className="header" style={checkout ? { justifyContent: "start"} : { justifyContent: "space-between" }}>
             <div className="menu-logo">
                 <button className="menu" onClick={() => setToggleMenu(true)}>
                     <FiMenu />
@@ -56,27 +61,29 @@ const Header = () => {
             <div className="search">
                 <SearchBar/>
             </div>
-            <div className={`icons ${ checkout ? 'hidden' : ''}`}>
-                <BagButton />
-                <Link to={"/historico"}>
-                    <UserButton />
-                </Link>
+            <div className={`icons ${ checkout && 'hidden'}`}>
+                <BagButton />  
+                <UserButton />
             </div>
         </div>
+
+        {/* Mobile Search */}
         <div className="mobile-search">
             <SearchBar/>
         </div>
-        <div className={`navbar ${ checkout ? 'hidden' : ''}`}>
+
+        {/* Desktop NavBar */}
+        <div className={`navbar ${ checkout && 'hidden'}`}>
         <Link to={"/"}>
                 <p className='link'>Início</p>
             </Link>
-            <Link to={"/produtos"}>
+            <Link to={"/products"}>
                 <p className='link'>Produtos</p>
             </Link>
-            <Link to={"/masculino"}>
+            <Link to={"/men"}>
                 <p className='link'>Masculino</p>
             </Link>
-            <Link to={"/feminino"}>
+            <Link to={"/women"}>
                 <p className='link'>Feminino</p>
             </Link>
         </div>

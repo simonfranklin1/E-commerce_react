@@ -13,7 +13,7 @@ const SliderCard = ({data}) => {
     } = data;
 
   return (
-    <Link to={`/produtos/${id}`}>
+    <Link to={`/products/${id}`}>
       <div className={`slider_card ${ women? 'women' : 'male' }`}>
             <div className="slider_card-image">
               <img src={thumbnail[0]} alt={`Image product-` + id} />

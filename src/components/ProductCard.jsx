@@ -13,7 +13,7 @@ const ProductCard = ({data}) => {
     } = data;
 
   return (
-    <Link to={`/produtos/${id}`}>
+    <Link to={`/products/${id}`}>
       <div className={`product-card ${ women? 'women' : 'male' }`}>
             <div className="product-image">
               <img src={thumbnail[0]} alt={`Image product-` + id} />

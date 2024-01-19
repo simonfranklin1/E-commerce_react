@@ -1,12 +1,12 @@
 import "./Checkout.css"
 import CheckoutItem from "../components/CheckoutItem"
-import { insertMaskInPhone, insertMaskInCep, validateCard, validadeDate, validateCVV, formatCurrency, saveLocalStorage, removeLocalStorage } from "../utilities/utilities"
+import { insertMaskInCep, validateCard, validadeDate, validateCVV, formatCurrency, saveLocalStorage, removeLocalStorage } from "../utilities/utilities"
 import { useContext, useState } from "react";
 import { StoreContext } from "../context/StoreContext";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
-    const { setBagItens, bagItens, historic, setHistoric, checkout, setCheckout } = useContext(StoreContext);
+    const { setBagItens, bagItens, user, setUser, checkout, setCheckout } = useContext(StoreContext);
 
     if(!checkout) {
         setCheckout(true);
@@ -18,8 +18,6 @@ const Checkout = () => {
     }, 0);
 
     const [name, setName] = useState('');
-    const [email,setEmail] = useState('');
-    const [tel, setTel] = useState('');
     const [cep, setCep] = useState('');
     const [cvv, setCvv] = useState('');
     const [cardNumber, setCardNumber] = useState('');
@@ -42,8 +40,8 @@ const Checkout = () => {
             return;
         }
 
-        setHistoric([orderPlaced, ...historic]);
-        saveLocalStorage("historic", [orderPlaced, ...historic]);
+        setUser({...user, orders: [...user.orders, orderPlaced]});
+        console.log({...user, orders: [...user.orders, orderPlaced]})
         setBagItens([]);
         removeLocalStorage("bag");
         navigate("/");
@@ -60,42 +58,6 @@ const Checkout = () => {
                         <p>Nome</p>
                         <input type="text" name="nome"  placeholder='Nome Completo' value={name} onChange={(e) => setName(e.target.value)} required />
                     </label>
-                </div>
-                <div className="form">
-                    <label>
-                        <p>E-mail</p>
-                        <input type="email" name="email"  placeholder='Email Completo' value={email} onChange={(e) => setEmail(e.target.value)} required />
-                    </label>
-                </div>
-                <div className="form">
-                    <label>
-                        <p>Telefone de contato</p>
-                        <input type="text" name="telefone"  placeholder='(xx) xxxx-xxxx' value={tel} onChange={(e) => setTel(insertMaskInPhone(e.target.value))} required  />
-                    </label>
-                </div>
-            </section>
-
-            <section className="payment-data">
-                <p className="title">Pagamento e Entrega</p>
-                <div className="form">
-                    <label>
-                        <p>Pagamento do Cartão</p>
-                        <input type="text" name="cartao" placeholder='Numero do Cartão' value={cardNumber} onChange={(e) => setCardNumber(validateCard(e.target.value))} required/>
-                    </label>
-                </div>
-                <div className="flex-form">
-                <div className="form">
-                    <label>
-                        <p>CVV</p>
-                        <input type="text" name="cvv"  placeholder='222' value={cvv} onChange={(e) => setCvv(validateCVV(e.target.value))} required />
-                    </label>
-                </div>
-                <div className="form">
-                    <label>
-                        <p>Data de Validade</p>
-                        <input type="text" name="validade"  placeholder='10/24' value={expiration} onChange={(e) => setExpiration(validadeDate(e.target.value))} required />
-                    </label>
-                </div>
                 </div>
                 <div className="form">
                     <label>
@@ -124,6 +86,30 @@ const Checkout = () => {
                     </div>
                 </div>
             </section>
+
+            <section className="payment-data">
+                <p className="title">Pagamento</p>
+                <div className="form">
+                    <label>
+                        <p>Pagamento do Cartão</p>
+                        <input type="text" name="cartao" placeholder='Numero do Cartão' value={cardNumber} onChange={(e) => setCardNumber(validateCard(e.target.value))} required/>
+                    </label>
+                </div>
+                <div className="flex-form">
+                <div className="form">
+                    <label>
+                        <p>CVV</p>
+                        <input type="text" name="cvv"  placeholder='222' value={cvv} onChange={(e) => setCvv(validateCVV(e.target.value))} required />
+                    </label>
+                </div>
+                <div className="form">
+                    <label>
+                        <p>Data de Validade</p>
+                        <input type="text" name="validade"  placeholder='10/24' value={expiration} onChange={(e) => setExpiration(validadeDate(e.target.value))} required />
+                    </label>
+                </div>
+                </div>
+            </section>
             
             <section className="bag-data">
                 <div className="bag-itens">
@@ -134,7 +120,7 @@ const Checkout = () => {
                     <div className="bag-price">
                         <p>Preço Total: <span> {formatCurrency(totalPrice, 'BRL')} </span></p>
                     </div>
-                    <button type="submit">Finalizar Compra</button>
+                    <button className="checkout_button" type="submit">Finalizar Compra</button>
                 </div>
             </section>
         </form>

@@ -6,6 +6,8 @@ import Women from "./Women";
 import ProductPage from "./ProductPage";
 import Products from "./Products";
 import Search from "./Search";
+import SignUp from "./SignUp";
+import SignIn from "./SignIn";
 
 
 export {
@@ -16,5 +18,7 @@ export {
     ProductPage,
     Products,
     Search,
-    Women
+    Women,
+    SignUp,
+    SignIn
 }

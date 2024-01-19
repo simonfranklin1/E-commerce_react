@@ -72,8 +72,8 @@ const ProductPage = () => {
         if(alreadyAdded) {
             return;
         } else {
-            setFavorites([itemData, ...favorites]);
-            saveLocalStorage("favorites", [itemData, ...favorites]);
+            setFavorites([product, ...favorites]);
+            saveLocalStorage("favorites", [product, ...favorites]);
         }
     }
 

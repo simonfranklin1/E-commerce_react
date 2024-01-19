@@ -7,21 +7,20 @@ import ProductCard from '../components/ProductCard';
 
 const Search = () => {
   const [searchParams] = useSearchParams();
-  const url = "https://heliotrope-exultant-hisser.glitch.me/catalogo?" + searchParams;
 
-  const { loading, setLoading, query } = useContext(StoreContext);
+  const { loading, setLoading, query, url } = useContext(StoreContext);
   const [ products, setProducts ] = useState();
 
 
   useEffect(() => {
     setLoading(true);
 
-    fetchUrl(url).then((response) => {
+    fetchUrl(url + `/products?${searchParams}`).then((response) => {
       setProducts(response);
       setLoading(false);
     })
 
-  }, [url]);
+  }, [query]);
 
   return (
     (loading && <Loading />) || (
@@ -29,10 +28,10 @@ const Search = () => {
           <p className="container_title">Resultados para: <span>{query}</span></p>
           {products.length > 0 ? (
             <div className="products-container">
-              {products.map((product) => <ProductCard key={product.id} data={{title: product.nome, thumbnail: product.imagem, brand: product.marca, women: product.feminino, id: product.id, price: product.preco}}/>)}
+              {products.map((product) => <ProductCard key={product.id} data={{title: product.name, ...product}}/>)}
             </div>
           ) : (
-            <p className="not-found" style={{textAlign: 'center', marginTop: '3.5rem'}}>Produto não encontrado</p>
+            <p className="not-found" style={{textAlign: 'center', marginTop: '3.5rem'}}>Produto não encontrado.</p>
           )}
         </section>
     )

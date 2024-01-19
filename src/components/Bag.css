@@ -87,7 +87,7 @@
     gap: .5rem;
 }
 
-.finish-buying button {
+.checkout_button {
     width: 100%;
     background-color: rgba(26, 26, 26, 0.95);
     color: #fff;
@@ -98,8 +98,19 @@
     transition: .2s;
 }
 
-.finish-buying button:hover {
+.checkout_button:hover {
     background-color: rgb(20, 20, 20);
+}
+
+.no-user_button {
+    width: 100%;
+    background-color: #fff;
+    color: rgba(26, 26, 26);
+    padding: .7rem 0;
+    border-radius: 5px;
+    font-weight: 500;
+    border: 3px solid rgba(26, 26, 26);
+    cursor: pointer;   
 }
 
 @media (max-width: 450px) {

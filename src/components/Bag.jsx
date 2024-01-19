@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { formatCurrency } from "../utilities/utilities"
 
 const Bag = () => {
-  const { openBag, setOpenBag, bagItens, setCheckout } = useContext(StoreContext);
+  const { openBag, setOpenBag, bagItens, setCheckout, user } = useContext(StoreContext);
 
   const totalPrice = bagItens.reduce((acc, item) => {
     return item.price * item.quantity + acc
@@ -23,6 +23,11 @@ const Bag = () => {
     } else {
       return;
     }  
+  }
+
+  const goToLogin = () => {
+    navigate("/sign-in");
+    setOpenBag(false);
   }
 
   return (
@@ -42,7 +47,16 @@ const Bag = () => {
             <div className="total-price">
               <p>{formatCurrency(totalPrice, 'BRL')}</p>
             </div>
-            <button onClick={goToCheckout}>Finalizar Compra</button>
+            { user && (
+                <button className="checkout_button" onClick={goToCheckout}>
+                  Finalizar compra
+                </button>
+              ) || (
+                <button className="no-user_button" onClick={goToLogin}>
+                  Faça Login para finalizar
+                </button> 
+              )
+            }
         </div>
 
     </section>
