@@ -60,7 +60,7 @@ export const StoreContextProvider = ({children}) => {
                     });
     
                     setUser(userData);
-                    saveLocalStorage("user_db", userData)
+                    saveLocalStorage("user_db", userData);
                     return res;
                 } catch (error) {
                     console.log(error); 
@@ -82,7 +82,9 @@ export const StoreContextProvider = ({children}) => {
 
                 if(alreadyRegistered) {
                     setUser(alreadyRegistered);
+                    saveLocalStorage("user_db", alreadyRegistered);
                 }
+                   
             } catch (error) {
                 console.log(error);
             }

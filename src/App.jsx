@@ -2,7 +2,7 @@ import './App.css'
 import Bag from './components/Bag'
 import Header from './components/Header'
 import { Route, Routes } from 'react-router-dom'
-import { Home, Checkout, Historic, Men, ProductPage, Products, Search, Women, SignUp, SignIn } from './routes'
+import { Home, Checkout, Historic, Men, ProductPage, Products, Search, Women, SignUp, SignIn, Favorites } from './routes'
 import Footer from './components/Footer'
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
         <Route path="/women" element={<Women />} />
         <Route path="/search" element={<Search />} />
         <Route path="/historic" element={<Historic />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
       </Routes> 

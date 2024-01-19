@@ -7,14 +7,15 @@ import Loading from "../components/Loading";
 
 
 const Historic = () => {
-  const {historic} = useContext(StoreContext);
+  const { user } = useContext(StoreContext);
+  console.log(user);
 
   return (
     <div className="container">
       <div className="historic">
           <h3 className='historic-header'>Seu Histórico de compras</h3>
           <section className="historic-orders">
-              {historic && historic.map((order) => (
+              {user && user.orders.map((order) => (
                 <HistoricCard key={`${order.userName} | ${order.orderDate}`} data={order} />
               ))}
           </section>

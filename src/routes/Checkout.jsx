@@ -6,7 +6,7 @@ import { StoreContext } from "../context/StoreContext";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
-    const { setBagItens, bagItens, user, setUser, checkout, setCheckout } = useContext(StoreContext);
+    const { setBagItens, bagItens, user, setUser, checkout, setCheckout, url } = useContext(StoreContext);
 
     if(!checkout) {
         setCheckout(true);
@@ -33,19 +33,38 @@ const Checkout = () => {
             order: itens
         }
 
-    const saveOrder = (e) => {
+    const saveOrder = async (e) => {
         e.preventDefault()
 
         if(itens.length === 0) {
             return;
         }
 
-        setUser({...user, orders: [...user.orders, orderPlaced]});
-        console.log({...user, orders: [...user.orders, orderPlaced]})
-        setBagItens([]);
-        removeLocalStorage("bag");
-        navigate("/");
-        setCheckout(false)
+        try {
+            const updatedUser = {...user, orders: [...user.orders, orderPlaced]};
+            setUser(updatedUser);
+            saveLocalStorage("user_db", updatedUser);
+
+            const res = await fetch(url + `/users/${user.id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-type":"application/json"
+                },
+                body: JSON.stringify(updatedUser)
+            });
+            
+
+            setBagItens([]);
+            removeLocalStorage("bag");
+            navigate("/");
+            setCheckout(false);
+
+            return res;
+
+        } catch (error) {
+            console.log(error)   
+        }
+        
     }
 
   return (

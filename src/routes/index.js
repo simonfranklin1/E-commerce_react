@@ -8,6 +8,7 @@ import Products from "./Products";
 import Search from "./Search";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
+import Favorites from "./Favorites";
 
 
 export {
@@ -20,5 +21,6 @@ export {
     Search,
     Women,
     SignUp,
-    SignIn
+    SignIn,
+    Favorites
 }

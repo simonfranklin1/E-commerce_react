@@ -12,7 +12,7 @@ import Carousel from '../components/ProductPageSlider';
 const ProductPage = () => {
 
     const { id } = useParams();
-    const { url, loading, setLoading, bagItens, setBagItens, favorites, setFavorites } = useContext(StoreContext);
+    const { url, loading, setLoading, bagItens, setBagItens, user, setUser } = useContext(StoreContext);
 
     const [ product, setProduct ] = useState({});
 
@@ -68,12 +68,15 @@ const ProductPage = () => {
     }
 
     const favoriteItem = () => {
-        const alreadyAdded = favorites.find((item) => item.id === product.id);
-        if(alreadyAdded) {
-            return;
+        if(user) {
+            const alreadyAdded = user.favorites.find((favorite) => favorite.id === product.id);
+            if(alreadyAdded) return;
+
+            const updatedUser = {...user, favorites: [product, ...user.favorites]};
+            setUser(updatedUser);
+            saveLocalStorage("user_db", updatedUser);
         } else {
-            setFavorites([product, ...favorites]);
-            saveLocalStorage("favorites", [product, ...favorites]);
+            return;
         }
     }
 
