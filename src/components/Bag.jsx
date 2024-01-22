@@ -7,16 +7,16 @@ import { useNavigate } from 'react-router-dom'
 import { formatCurrency } from "../utilities/utilities"
 
 const Bag = () => {
-  const { openBag, setOpenBag, bagItens, setCheckout, user } = useContext(StoreContext);
+  const { openBag, setOpenBag, bagItems, setCheckout, user } = useContext(StoreContext);
 
-  const totalPrice = bagItens.reduce((acc, item) => {
+  const totalPrice = bagItems.reduce((acc, item) => {
     return item.price * item.quantity + acc
   }, 0);
 
   const navigate = useNavigate();
 
   const goToCheckout = () => {
-    if(bagItens.length > 0) {
+    if(bagItems.length > 0) {
       navigate("/checkout");
       setOpenBag(false);
       setCheckout(true);
@@ -38,9 +38,9 @@ const Bag = () => {
             <RiCloseCircleFill className='close-bag' onClick={() => setOpenBag(false)}/>
         </div>
 
-        <div className={`bag-itens ${bagItens.length === 0 ?  'empty' : ''}`}>
-            {bagItens.length === 0 && <p style={{ opacity: '.8', textAlign: 'center', fontSize: '20px'}}>Sua sacola está vazia</p>}
-            {bagItens && bagItens.map((item) => <BagItem key={`${item.id} | ${item.size}`} data={item}></BagItem>)}
+        <div className={`bag-itens ${bagItems.length === 0 ?  'empty' : ''}`}>
+            {bagItems.length === 0 && <p style={{ opacity: '.8', textAlign: 'center', fontSize: '20px'}}>Sua sacola está vazia</p>}
+            {bagItems && bagItems.map((item) => <BagItem key={`${item.id} | ${item.size}`} data={item}></BagItem>)}
         </div>
 
         <div className="finish-buying">
@@ -48,7 +48,7 @@ const Bag = () => {
               <p>{formatCurrency(totalPrice, 'BRL')}</p>
             </div>
             { user && (
-                <button className="checkout_button" onClick={goToCheckout}>
+                <button className="bag_button" onClick={goToCheckout}>
                   Finalizar compra
                 </button>
               ) || (

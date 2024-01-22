@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { StoreContext } from '../context/StoreContext';
 import Loading from '../components/Loading';
-import { useParams } from 'react-router-dom';
+import { json, useParams } from 'react-router-dom';
 import { BsFillBagFill } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { FaLongArrowAltDown } from "react-icons/fa";
@@ -48,7 +48,7 @@ const ProductPage = () => {
         setSize(element.innerText);
         document.querySelectorAll(".select-size").forEach((btn) => btn.classList.remove('select-size'));
 
-        element.classList.add('select-size')
+        element.classList.add('select-size');
     }
 
     const addToBag = () => {
@@ -67,14 +67,25 @@ const ProductPage = () => {
         }    
     }
 
-    const favoriteItem = () => {
+    const favoriteItem = async () => {
         if(user) {
             const alreadyAdded = user.favorites.find((favorite) => favorite.id === product.id);
             if(alreadyAdded) return;
 
             const updatedUser = {...user, favorites: [product, ...user.favorites]};
+
+            const res = await fetch(url + `/users/${user.id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-type" : "application/json"
+                },
+                body: JSON.stringify(updatedUser)
+            })
+
             setUser(updatedUser);
-            saveLocalStorage("user_db", updatedUser);
+            //saveLocalStorage("user_db", updatedUser);
+
+            return res;
         } else {
             return;
         }

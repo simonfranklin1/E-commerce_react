@@ -2,45 +2,45 @@
     padding-top: 130px;
     padding-bottom: 30px;
     background-color: #f7f7f7;
-}
-
-.checkout form {
     display: flex;
-    gap: 1.5rem;
     justify-content: center;
-    flex: 1;
-    flex-wrap: wrap;
 }
 
-.title {
-    margin-bottom: .5rem;
+.checkout-data {
+    max-width: 700px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+}
+
+.checkout-data section {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.form-title {
+    text-align: center;
+    margin: 1rem 0 1.5rem;
     font-weight: 700;
 }
 
-.checkout section {
-    width: 380px;
-    height: 500px;
-    padding: 20px 15px;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.705);
-    border-radius: 10px;
-    text-align: center;
-}
-
-.form {
+.form-field {
     display: flex;
     flex-direction: column;
-    padding: 7px;
     text-align: left;
+    width: 100%;
+    margin-bottom: .5rem;
+    padding: 5px 0;
 }
 
-.form label p {
-    font-weight: 700; 
+.form-field label p {
+    font-weight: 600; 
     margin-bottom: .5rem;  
     font-size: .875rem; 
 }
 
-.form label input {
+.form-field label input {
     padding: .5rem;
     border-radius: 5px;
     border: 1px solid rgb(154, 157, 161);
@@ -50,24 +50,39 @@
 .flex-form {
     display: flex;
     align-items: center;
+    gap: 1rem;
+    width: 100%;
 }
 
-.flex-form .form {
+.flex-form .form-field {
     width: 50%;
 }
 
-.bag-data {
+.finish-checkout {
+    width: 100%;
+    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
-.bag-price {
+.checkout-price {
     text-align: left;
+    margin-bottom: .5rem;
 }
 
-.bag-price span {
+.checkout-price span {
     font-weight: 700;
+}
+
+.checkout_button {
+    width: 45%;
+    background-color: rgba(26, 26, 26, 0.95);
+    color: #fff;
+    padding: .7rem 0;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
 }
 
 @media (max-width: 450px) {
@@ -75,9 +90,19 @@
         padding: 10px;
     }
 
-    .checkout section {
-        min-width: 330px;
-        min-height: 450px;
-        padding: 20px 15px;
+    .form-title {
+        font-size: 18px;
+        margin: 1rem 0;
+    }
+
+    .checkout-data {
+        width: 100%;
+        max-width: 400px;
+        padding: 10px;
+        border: none;
     } 
+
+    .checkout_button {
+        width: 100%;
+    }
 }

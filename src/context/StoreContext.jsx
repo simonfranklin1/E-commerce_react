@@ -14,7 +14,7 @@ export const StoreContextProvider = ({children}) => {
 
     const [ loading, setLoading ] = useState(false);
 
-    const [ bagItens, setBagItens ] = useState(getLocalStorage("bag") || []);
+    const [ bagItems, setBagItems ] = useState(getLocalStorage("bag") || []);
 
     const [ checkout, setCheckout ] = useState('');
 
@@ -100,8 +100,8 @@ export const StoreContextProvider = ({children}) => {
         setUrl,
         loading, 
         setLoading,
-        bagItens, 
-        setBagItens, 
+        bagItems, 
+        setBagItems, 
         checkout,
         setCheckout, 
         query, 

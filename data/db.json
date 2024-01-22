@@ -163,15 +163,77 @@
       "email": "jonasp@gmail.com",
       "password": "contajonasp",
       "orders": [],
-      "favorites": [],
+      "favorites": [
+        {
+          "id": 9,
+          "brand": "Zara",
+          "name": "Blazer de Terno 100% Lã",
+          "thumbnail": [
+            "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-9.jpg?raw=true",
+            "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-9.2.jpg?raw=true",
+            "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-9.3.jpg?raw=true",
+            "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-9.4.jpg?raw=true"
+          ],
+          "price": 796,
+          "women": false
+        }
+      ],
       "id": 1
     },
     {
       "name": "Simon Franklin",
       "email": "simonfranklin@gmail.com",
       "password": "simondino",
-      "orders": [],
-      "favorites": [],
+      "orders": [
+        {
+          "nameUser": "Simon Franklin",
+          "orderDate": "2024-01-21T21:11:14.414Z",
+          "order": [
+            {
+              "id": 4,
+              "title": "Blazer com Cinto com Linho",
+              "price": 720,
+              "quantity": 1,
+              "thumbnail": [
+                "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-12.jpg?raw=true",
+                "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-12.2.jpg?raw=true",
+                "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-12.3.jpg?raw=true",
+                "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-12.4.jpg?raw=true"
+              ],
+              "brand": "Zara",
+              "size": "GG"
+            }
+          ]
+        }
+      ],
+      "favorites": [
+        {
+          "id": 3,
+          "brand": "Zara",
+          "name": "Jaqueta com Efeito Camurça",
+          "price": 240,
+          "thumbnail": [
+            "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-3.jpg?raw=true",
+            "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-3.2.jpg?raw=true",
+            "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-3.3.jpg?raw=true",
+            "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-3.4.jpg?raw=true"
+          ],
+          "women": false
+        },
+        {
+          "id": 9,
+          "brand": "Zara",
+          "name": "Blazer de Terno 100% Lã",
+          "thumbnail": [
+            "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-9.jpg?raw=true",
+            "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-9.2.jpg?raw=true",
+            "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-9.3.jpg?raw=true",
+            "https://github.com/simonfranklin1/franklin-store/blob/main/assets/img/product-9.4.jpg?raw=true"
+          ],
+          "price": 796,
+          "women": false
+        }
+      ],
       "id": 2
     }
   ]

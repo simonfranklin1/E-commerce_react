@@ -87,7 +87,7 @@
     gap: .5rem;
 }
 
-.checkout_button {
+.bag_button {
     width: 100%;
     background-color: rgba(26, 26, 26, 0.95);
     color: #fff;
@@ -98,7 +98,7 @@
     transition: .2s;
 }
 
-.checkout_button:hover {
+.bag_button:hover {
     background-color: rgb(20, 20, 20);
 }
 

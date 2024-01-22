@@ -4,9 +4,8 @@ import { StoreContext } from "../context/StoreContext";
 import Loading from "../components/Loading";
 
 const Favorites = () => {
-    const { loading, setLoading, user } = useContext(StoreContext);
+    const { loading, user } = useContext(StoreContext);
     const [ products, setProducts ] = useState(user.favorites);
-
 
     return (
       (loading && <Loading />) || (

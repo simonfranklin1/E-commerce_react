@@ -8,7 +8,6 @@ import Loading from "../components/Loading";
 
 const Historic = () => {
   const { user } = useContext(StoreContext);
-  console.log(user);
 
   return (
     <div className="container">

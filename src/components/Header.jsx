@@ -23,7 +23,7 @@ const Header = () => {
     }
 
   return (
-    <header className={checkout && "header-checkout_active"} id="header">
+    <header className={checkout ? "header-checkout_active" : ""} id="header">
         
         {/* Desktop Background */}
         <div className="menu_mobile-background" style={ toggleMenu ? { display: 'block'} : {display: 'none'}} />
@@ -51,7 +51,7 @@ const Header = () => {
 
         <div className="header" style={checkout ? { justifyContent: "start"} : { justifyContent: "space-between" }}>
             <div className="menu-logo">
-                <button className="menu" onClick={() => setToggleMenu(true)}>
+                <button className="menu" onClick={() => setToggleMenu(true)} style={ checkout ? { display: "none"} : { }}>
                     <FiMenu />
                 </button>
                 <div className="logo">

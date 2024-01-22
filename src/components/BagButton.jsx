@@ -6,16 +6,16 @@ import "./BagButton.css";
 
 
 const BagButton = () => {
-  const { setOpenBag, bagItens } = useContext(StoreContext)
+  const { setOpenBag, bagItems } = useContext(StoreContext)
 
-  const numberOfItens = bagItens.reduce((acc, item) => {
+  const numberOfItens = bagItems.reduce((acc, item) => {
     return item.quantity + acc
   }, 0)
 
   return (
     <button className="bag-btn" onClick={() => setOpenBag(true)}>
       <BsBag/>
-          {bagItens.length > 0 && (<span className='notification'> {numberOfItens} </span>)}
+          {bagItems.length > 0 && (<span className='notification'> {numberOfItens} </span>)}
     </button>
   )
 }
