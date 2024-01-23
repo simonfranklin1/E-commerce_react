@@ -23,8 +23,6 @@
     align-items: end;
     position: absolute;
     top: 45px;
-    left: 50%;
-    transform: translateX(-50%);
     padding: 1rem 1.5rem;
     background-color: #fff;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.295);
@@ -46,6 +44,6 @@
 @media (max-width: 450px) {
     
     .user-menu {
-        transform: translateX(-61%);   
+        right: 0;   
     }
 }

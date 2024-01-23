@@ -10,26 +10,26 @@ import { formatCurrency } from '../utilities/utilities';
 const BagItem = ({data}) => {
     const { id, title, price, quantity, thumbnail, size } = data;
 
-    const { bagItens, setBagItens } = useContext(StoreContext);
+    const { bagItems, setBagItems } = useContext(StoreContext);
 
     const handleRemoveItem = () => { 
-        const updatedItens = bagItens.filter((item) => item !== data);
+        const updatedItems = bagItems.filter((item) => item !== data);
 
-        setBagItens(updatedItens);
-        saveLocalStorage("bag", updatedItens);
+        setBagItems(updatedItems);
+        saveLocalStorage("bag", updatedItems);
     }
 
     const incrementItemQuantity = () => {
         data.quantity += 1;
-        setBagItens([...bagItens]);
-        saveLocalStorage("bag", bagItens);
+        setBagItems([...bagItems]);
+        saveLocalStorage("bag", bagItems);
     }
 
     const decrementItemQuantity = () => {
         if(data.quantity > 1) {
             data.quantity -= 1;
-            setBagItens([...bagItens]);
-            saveLocalStorage("bag", bagItens);
+            setBagItems([...bagItems]);
+            saveLocalStorage("bag", bagItems);
         } else {
             handleRemoveItem();
         }
@@ -49,9 +49,15 @@ const BagItem = ({data}) => {
         </div>
 
         <div className="quantity-items">
-                <button> <BiMinus onClick={decrementItemQuantity} /> </button>
-                        {quantity}
-                <button> <BiPlus onClick={incrementItemQuantity} /> </button>
+                <button> 
+                    <BiMinus onClick={decrementItemQuantity} /> 
+                </button>
+
+                {quantity}
+                
+                <button> 
+                    <BiPlus onClick={incrementItemQuantity} />
+                </button>
         </div>
         <button className="delete-item" onClick={handleRemoveItem}>
             <FaTrash />

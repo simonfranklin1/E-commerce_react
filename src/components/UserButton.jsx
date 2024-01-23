@@ -1,16 +1,18 @@
 import { useContext, useState } from 'react'
-import {FaRegUser} from 'react-icons/fa6'
+import { FaRegUser } from 'react-icons/fa6'
 import "./UserButton.css"
 import { StoreContext } from '../context/StoreContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const UserButton = () => {
   const { user, setUser } = useContext(StoreContext);
   const [ openMenu, setOpenMenu ] = useState(false);
+  const navigate = useNavigate();
 
   const logOut = () => {
     setUser(null);
-    localStorage.removeItem("user_db");
+    localStorage.removeItem("user-data");
+    navigate("/");
   }
 
   return (

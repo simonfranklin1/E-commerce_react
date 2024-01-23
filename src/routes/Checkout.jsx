@@ -1,11 +1,12 @@
 import "./Checkout.css"
-import { insertMaskInCep, validateCard, validadeDate, validateCVV, formatCurrency, saveLocalStorage, removeLocalStorage } from "../utilities/utilities"
+import { insertMaskInCep, validateCard, validadeDate, validateCVV, formatCurrency, saveLocalStorage, removeLocalStorage, getLocalStorage } from "../utilities/utilities"
 import { useContext, useState } from "react";
 import { StoreContext } from "../context/StoreContext";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
     const { setBagItems, bagItems, user, setUser, checkout, setCheckout, url } = useContext(StoreContext);
+    const [ users, setUsers] = useState(getLocalStorage("users_db") || []);
 
     if(!checkout) {
         setCheckout(true);
@@ -32,39 +33,34 @@ const Checkout = () => {
         order: items
     }
 
-    const saveOrder = async (e) => {
-        e.preventDefault()
+    const saveOrder = (e) => {
+        e.preventDefault();
 
         if(items.length === 0) {
             return;
         }
 
-        try {
-            const updatedUser = {...user, orders: [...user.orders, orderPlaced]};
+        const findUser = users?.find((fUser) => fUser.email === user.email);
+        setUser({...user, orders: [orderPlaced, ...user.orders]});
+        findUser.orders = [orderPlaced, ...user.orders];
+
+        saveLocalStorage("users_db", [...users]);
+
+
+
+        /*const res = await fetch(url + `/users/${user.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-type":"application/json"
+            },
+            body: JSON.stringify(updatedUser)
+        }); */
             
-            setUser(updatedUser);
-            saveLocalStorage("user_db", updatedUser);
 
-            const res = await fetch(url + `/users/${user.id}`, {
-                method: "PATCH",
-                headers: {
-                    "Content-type":"application/json"
-                },
-                body: JSON.stringify(updatedUser)
-            });
-            
-
-            setBagItems([]);
-            removeLocalStorage("bag");
-            navigate("/");
-            setCheckout(false);
-
-            return res;
-
-        } catch (error) {
-            console.log(error)   
-        }
-        
+        setBagItems([]);
+        removeLocalStorage("bag");
+        navigate("/");
+        setCheckout(false);
     }
 
   return (

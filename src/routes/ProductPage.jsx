@@ -6,15 +6,16 @@ import { BsFillBagFill } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { FaLongArrowAltDown } from "react-icons/fa";
 import "./ProductPage.css";
-import { fetchUrl, formatCurrency, saveLocalStorage } from '../utilities/utilities';
+import { fetchUrl, formatCurrency, getLocalStorage, saveLocalStorage } from '../utilities/utilities';
 import Carousel from '../components/ProductPageSlider';
 
 const ProductPage = () => {
 
     const { id } = useParams();
-    const { url, loading, setLoading, bagItens, setBagItens, user, setUser } = useContext(StoreContext);
+    const { url, loading, setLoading, bagItems, setBagItems, user, setUser } = useContext(StoreContext);
+    const [ users, setUsers ] = useState(getLocalStorage("users_db") || []);
 
-    const [ product, setProduct ] = useState({});
+    const [ product, setProduct ] = useState(false);
 
     useEffect(() => {
         setLoading(true);
@@ -55,37 +56,42 @@ const ProductPage = () => {
         if(!size) {
             document.querySelector(".size-message").style.display = "inline-block";
         } else {
-            const alreadyAdded = bagItens.find((item) => item.id === itemData.id && item.size === itemData.size);
+            const alreadyAdded = bagItems.find((item) => item.id === itemData.id && item.size === itemData.size);
             if(alreadyAdded) {
                 alreadyAdded.quantity += 1;
-                setBagItens([...bagItens]);
-                saveLocalStorage("bag", bagItens)
+                setBagItems([...bagItems]);
+                saveLocalStorage("bag", bagItems)
             } else {
-                setBagItens([...bagItens, itemData]);
-                saveLocalStorage("bag", [...bagItens, itemData]); 
+                setBagItems([...bagItems, itemData]);
+                saveLocalStorage("bag", [...bagItems, itemData]); 
             }
         }    
     }
 
-    const favoriteItem = async () => {
+    const favoriteItem = () => {
         if(user) {
-            const alreadyAdded = user.favorites.find((favorite) => favorite.id === product.id);
-            if(alreadyAdded) return;
+            const alreadyFavorite = user.favorites.find((favorite) => favorite.id === product.id);
+            const findUser = users?.find((fUser) => fUser.email === user.email);
 
-            const updatedUser = {...user, favorites: [product, ...user.favorites]};
+            if(alreadyFavorite) {
+                const filteredFavorites = user.favorites.filter((favorite) => favorite.id !== product.id);
+                setUser({...user, favorites: filteredFavorites});
+                findUser.favorites = filteredFavorites;
+            } else {
+                setUser({...user, favorites: [product, ...user.favorites]});
+                findUser.favorites = [product, ...user.favorites];
+            }
 
-            const res = await fetch(url + `/users/${user.id}`, {
+            saveLocalStorage("users_db", [...users]);
+
+            /*const res = await fetch(url + `/users/${user.id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-type" : "application/json"
                 },
                 body: JSON.stringify(updatedUser)
-            })
+            })*/
 
-            setUser(updatedUser);
-            //saveLocalStorage("user_db", updatedUser);
-
-            return res;
         } else {
             return;
         }

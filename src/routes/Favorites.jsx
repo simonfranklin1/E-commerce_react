@@ -5,7 +5,11 @@ import Loading from "../components/Loading";
 
 const Favorites = () => {
     const { loading, user } = useContext(StoreContext);
-    const [ products, setProducts ] = useState(user.favorites);
+    const [ products, setProducts ] = useState([]);
+    
+    useEffect(() => {
+      setProducts(user?.favorites);
+    }, [user]);
 
     return (
       (loading && <Loading />) || (

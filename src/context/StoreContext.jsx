@@ -21,73 +21,58 @@ export const StoreContextProvider = ({children}) => {
     const [ query, setQuery ] = useState('');
 
     useEffect(() => {
-        const userData = getLocalStorage("user_db");
-
-        if(userData) {
-            setUser(userData);
-        }
+        const userToken = getLocalStorage("user_token");
+        const users = getLocalStorage("users_db");
         
+        if(userToken && users) {
+            const hasUser = users.find((user) => user.email === userToken.email)
+            
+            if(hasUser) setUser(hasUser);
+            console.log(hasUser);
+        }
     }, []);
 
-    const signUp = async ( name, email, password ) => {
-        if(!name || !email || !password ) {
-            return;
-        } else {
-            const res = await fetch(url + "/users");
-            const users = await res.json();
-                
-            const alreadyRegistered = users.find((user) => user.email === email);
+    const signUp = ( name, email, password ) => {
+        const users = getLocalStorage("users_db");
 
-            if(alreadyRegistered) {
-                window.alert("Email já cadastrado!");
-                return;
-            } else {
-                const userData = {
-                    name: name,
-                    email: email,
-                    password: password,
-                    orders: [],
-                    favorites: [],
-                }
-    
-                try {
-                    const res = await fetch(url + "/users", {
-                        method: "POST",
-                        headers: {
-                            "Content-type" : "application/json"
-                        },
-                        body: JSON.stringify(userData)
-                    });
-    
-                    setUser(userData);
-                    saveLocalStorage("user_db", userData);
-                    return res;
-                } catch (error) {
-                    console.log(error); 
-                }
-            }
+        const hasUser = users?.filter((user) => user.email === email);
+        
+        if(hasUser?.length) {
+            window.alert("Já tem uma conta com esse E-mail");
         }
 
+        const newUser = {
+            name: name,
+            email: email,
+            password: password,
+            orders: [],
+            favorites: [],
+        }
+
+        if(users) {
+            saveLocalStorage("users_db", [...users, newUser]);
+        } else {
+            saveLocalStorage("users_db", [newUser])
+        }    
+
+        setUser(newUser);
     }
 
-    const signIn = async ( email, password ) => {
-        if(!email && !password) {
-            return;
-        } else {
-            try {
-                const res = await fetch(url + "/users");
-                const users = await res.json();
-                
-                const alreadyRegistered = users.find((user) => user.email === email && user.password === password);
+    const signIn = ( email, password ) => {
+        const users = getLocalStorage("users_db");
 
-                if(alreadyRegistered) {
-                    setUser(alreadyRegistered);
-                    saveLocalStorage("user_db", alreadyRegistered);
-                }
-                   
-            } catch (error) {
-                console.log(error);
+        const hasUser = users?.filter((user) => user.email === email);
+
+        if(hasUser?.length) {
+            if(hasUser[0].email === email && hasUser[0].password === password) {
+                const token = Math.random().toString(36).substring(2);
+                saveLocalStorage("user_token", {email, token});
+                setUser(hasUser);
+            } else {
+                window.alert("E-mail ou senha incorretos")
             }
+        } else {
+            window.alert("Usuário não cadastrado");
         }
     }
 
