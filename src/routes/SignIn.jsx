@@ -15,10 +15,14 @@ const SignIn = () => {
     e.preventDefault();
 
     setLoading(true);
-    signIn(email, password);
+    const signin = signIn(email, password);
     setLoading(false);
 
-    navigate("/");
+    if(!signin) {
+      return;
+    } else {
+      navigate("/");
+    }
   }
 
   return (

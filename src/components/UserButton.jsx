@@ -11,7 +11,7 @@ const UserButton = () => {
 
   const logOut = () => {
     setUser(null);
-    localStorage.removeItem("user-data");
+    localStorage.removeItem("user_token");
     navigate("/");
   }
 

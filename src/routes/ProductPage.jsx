@@ -1,21 +1,26 @@
 import { useContext, useEffect, useState } from 'react';
 import { StoreContext } from '../context/StoreContext';
 import Loading from '../components/Loading';
-import { json, useParams } from 'react-router-dom';
+import { json, useNavigate, useParams } from 'react-router-dom';
 import { BsFillBagFill } from "react-icons/bs";
-import { CiHeart } from "react-icons/ci";
 import { FaLongArrowAltDown } from "react-icons/fa";
 import "./ProductPage.css";
 import { fetchUrl, formatCurrency, getLocalStorage, saveLocalStorage } from '../utilities/utilities';
 import Carousel from '../components/ProductPageSlider';
+import FavoriteButton from '../components/FavoriteButton';
 
 const ProductPage = () => {
 
     const { id } = useParams();
+    const navigate = useNavigate();
     const { url, loading, setLoading, bagItems, setBagItems, user, setUser } = useContext(StoreContext);
-    const [ users, setUsers ] = useState(getLocalStorage("users_db") || []);
+    
+    const users = getLocalStorage("users_db");
 
     const [ product, setProduct ] = useState(false);
+    const [ toggleFavorite, setToggleFavorite ] = useState(false);
+    
+    const [ size, setSize ] = useState(false);
 
     useEffect(() => {
         setLoading(true);
@@ -31,18 +36,6 @@ const ProductPage = () => {
         })
     }, []);
 
-    const [ size, setSize ] = useState(false);
-
-    const itemData = {
-        id: product.id,
-        title: product.name,
-        price: product.price,
-        quantity: 1,
-        thumbnail: product.thumbnail,
-        brand: product.brand,
-        size: size
-    }
-
     const handleSize = (e) => {
         const element = e.target;
 
@@ -56,7 +49,18 @@ const ProductPage = () => {
         if(!size) {
             document.querySelector(".size-message").style.display = "inline-block";
         } else {
+            const itemData = {
+                id: product.id,
+                title: product.name,
+                price: product.price,
+                quantity: 1,
+                thumbnail: product.thumbnail,
+                brand: product.brand,
+                size: size
+            }
+
             const alreadyAdded = bagItems.find((item) => item.id === itemData.id && item.size === itemData.size);
+            
             if(alreadyAdded) {
                 alreadyAdded.quantity += 1;
                 setBagItems([...bagItems]);
@@ -77,9 +81,11 @@ const ProductPage = () => {
                 const filteredFavorites = user.favorites.filter((favorite) => favorite.id !== product.id);
                 setUser({...user, favorites: filteredFavorites});
                 findUser.favorites = filteredFavorites;
+                setToggleFavorite(false);
             } else {
                 setUser({...user, favorites: [product, ...user.favorites]});
                 findUser.favorites = [product, ...user.favorites];
+                setToggleFavorite(true)
             }
 
             saveLocalStorage("users_db", [...users]);
@@ -93,7 +99,8 @@ const ProductPage = () => {
             })*/
 
         } else {
-            return;
+            window.alert("Para favoritar algum produto, faça login.");
+            navigate("/sign-in");
         }
     }
 
@@ -136,9 +143,7 @@ const ProductPage = () => {
                             Adicionar à Sacola <BsFillBagFill />
                         </button>
 
-                        <button className="add-favorite-btn" onClick={favoriteItem}>
-                            Adicionar aos favoritos <CiHeart />
-                        </button>
+                        <FavoriteButton favoriteItem={favoriteItem} user={user} setToggleFavorite={setToggleFavorite} toggleFavorite={toggleFavorite} product={product} />
                     </div>
                 </div>
             </div>

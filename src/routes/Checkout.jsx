@@ -46,8 +46,6 @@ const Checkout = () => {
 
         saveLocalStorage("users_db", [...users]);
 
-
-
         /*const res = await fetch(url + `/users/${user.id}`, {
             method: "PATCH",
             headers: {

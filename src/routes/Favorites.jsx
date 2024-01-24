@@ -1,22 +1,18 @@
-import { useEffect, useState, useContext } from "react"
+import { useContext } from "react"
 import ProductCard from "../components/ProductCard";
 import { StoreContext } from "../context/StoreContext";
 import Loading from "../components/Loading";
 
 const Favorites = () => {
-    const { loading, user } = useContext(StoreContext);
-    const [ products, setProducts ] = useState([]);
+    const { user } = useContext(StoreContext);
     
-    useEffect(() => {
-      setProducts(user?.favorites);
-    }, [user]);
 
     return (
-      (loading && <Loading />) || (
+      (!user && <Loading />) || (
           <section className='container'>
             <p className="container_title">Favoritos</p>
             <div className="products-container">
-              {products && products.map((product) => (
+              {user && user.favorites.map((product) => (
                 <ProductCard key={product.id} data={{title: product.name, ...product}}></ProductCard>
               ))}
             </div>

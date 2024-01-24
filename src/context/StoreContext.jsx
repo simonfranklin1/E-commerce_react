@@ -55,7 +55,10 @@ export const StoreContextProvider = ({children}) => {
             saveLocalStorage("users_db", [newUser])
         }    
 
+        const token = Math.random().toString(36).substring(2);
+
         setUser(newUser);
+        saveLocalStorage("user_token", {email, token});
     }
 
     const signIn = ( email, password ) => {
@@ -67,12 +70,15 @@ export const StoreContextProvider = ({children}) => {
             if(hasUser[0].email === email && hasUser[0].password === password) {
                 const token = Math.random().toString(36).substring(2);
                 saveLocalStorage("user_token", {email, token});
-                setUser(hasUser);
+                setUser(hasUser[0]);
+                return true;
             } else {
-                window.alert("E-mail ou senha incorretos")
+                window.alert("E-mail ou senha incorretos");
+                return false;
             }
         } else {
             window.alert("Usuário não cadastrado");
+            return false;
         }
     }
 
