@@ -10,7 +10,7 @@ import { FiMenu } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
 
 const Header = () => {
-    const { checkout, setCheckout, user } = useContext(StoreContext);
+    const { checkout, setCheckout } = useContext(StoreContext);
     const navigate = useNavigate();
     const [ toggleMenu, setToggleMenu ] = useState(false)
 
@@ -25,13 +25,13 @@ const Header = () => {
   return (
     <header className={checkout ? "header-checkout_active" : ""} id="header">
         
-        {/* Desktop Background */}
+        {/* Mobile Background */}
         <div className="menu_mobile-background" style={ toggleMenu ? { display: 'block'} : {display: 'none'}} />
 
-        {/* Desktop Menu */}
+        {/* Mobile Menu */}
         <div className="menu_mobile-container" style={ toggleMenu ? { left: '0'} : {left: '-100%'}} >
             <div className="close_menu-mobile" onClick={() => setToggleMenu(false)}>
-                    <MdClose />
+                <MdClose />
             </div>
             <div className="menu_mobile-container_links">
                     <Link to={"/"} onClick={() => setToggleMenu(false)}>
@@ -49,6 +49,7 @@ const Header = () => {
             </div>
         </div>
 
+        {/* Header */}
         <div className="header" style={checkout ? { justifyContent: "start"} : { justifyContent: "space-between" }}>
             <div className="menu-logo">
                 <button className="menu" onClick={() => setToggleMenu(true)} style={ checkout ? { display: "none"} : { }}>
@@ -73,8 +74,8 @@ const Header = () => {
         </div>
 
         {/* Desktop NavBar */}
-        <div className={`navbar ${ checkout && 'hidden'}`}>
-        <Link to={"/"}>
+        <div className={`navbar ${ checkout && 'hidden' }`}>
+            <Link to={"/"}>
                 <p className='link'>Início</p>
             </Link>
             <Link to={"/products"}>

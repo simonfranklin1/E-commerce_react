@@ -16,6 +16,10 @@ const SignUp = () => {
   const handleSignUp = ( e ) => {
     e.preventDefault();
 
+    if(!name || !email || !password) {
+      return;
+    }
+
     setLoading(true);
     signUp(name, email, password);
     setLoading(false);
@@ -35,8 +39,7 @@ const SignUp = () => {
               <input type="password" placeholder='Digite sua Senha' onChange={(e) => setPassword(e.target.value)} value={password}  required />
             </div>
             <button type="submit">
-              {loading && 'Criando usuário...'}
-              Inscrever-se
+              {loading ?'Criando usuário...' : 'Inscrever-se'}
             </button>
           </form>
           <p className="form-container_link">Já tem uma conta? <Link to={"/sign-in"}>Entrar</Link></p>

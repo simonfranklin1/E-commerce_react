@@ -36,8 +36,7 @@ const SignIn = () => {
               <input type="password" placeholder='Digite sua Senha' value={password} onChange={(e) => setPassword(e.target.value)}  />
             </div>
             <button type="submit">
-            {loading && 'Entrando na conta...'}
-              Entrar
+              {loading ? 'Entrando na conta...' : 'Entrar'}              
             </button>
           </form>
           <p className="form-container_link">Não tem uma conta? <Link to={"/sign-up"}>Cadastre-se</Link></p>
