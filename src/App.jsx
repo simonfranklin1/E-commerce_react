@@ -1,19 +1,19 @@
-import './App.css'
-import Bag from './components/Bag'
-import Header from './components/Header'
-import { Route, Routes } from 'react-router-dom'
-import { Home, Checkout, Historic, Men, ProductPage, Products, Search, Women, SignUp, SignIn, Favorites } from './routes'
-import Footer from './components/Footer'
+import "./App.css";
+import Bag from "./components/Bag";
+import Header from "./components/Header";
+import { Route, Routes } from "react-router-dom"
+import { Home, Checkout, Historic, Men, ProductPage, Products, Search, Women, SignUp, SignIn, Favorites } from "./routes";
+import Footer from "./components/Footer";
 
 function App() {
 
   return (
-    <div className="App" style={{minHeight: '100vh'}}>
+    <div className="App" style={{minHeight: "100vh"}}>
       <Bag />
       <Header />
       <Routes>
-        <Route index path='/' element={<Home />} />
-        <Route path='/products' element={<Products />} />
+        <Route index path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductPage />}  />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/men" element={<Men />} />

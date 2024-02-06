@@ -112,13 +112,13 @@ const Checkout = () => {
                         <div className="form-field">
                             <label>
                                 <p>CVV</p>
-                                <input type="text" name="cvv"  placeholder='222' value={cvv} onChange={(e) => setCvv(validateCVV(e.target.value))} required />
+                                <input type="text" name="cvv"  placeholder='123' value={cvv} onChange={(e) => setCvv(validateCVV(e.target.value))} required />
                             </label>
                         </div>
                         <div className="form-field">
                             <label>
                                 <p>Data de Validade</p>
-                                <input type="text" name="validade"  placeholder='10/24' value={expiration} onChange={(e) => setExpiration(validadeDate(e.target.value))} required />
+                                <input type="text" name="validade"  placeholder='10/37' value={expiration} onChange={(e) => setExpiration(validadeDate(e.target.value))} required />
                             </label>
                         </div>
                     </div>

@@ -13,12 +13,12 @@ const Historic = () => {
     (!user && <Loading />) || (
       <div className="container">
         <div className="historic">
-            <h3 className='historic-header'>Seu Histórico de compras</h3>
-            <section className="historic-orders">
-                {user && user?.orders.map((order) => (
-                  <HistoricCard key={`${order.userName} | ${order.orderDate}`} data={order} />
-                ))}
-            </section>
+          <h3 className='historic-header'>Seu Histórico de compras</h3>
+          <section className="historic-orders">
+            {user && user?.orders.map((order) => (
+              <HistoricCard key={`${order.userName} | ${order.orderDate}`} data={order} />
+            ))}
+          </section>
         </div>
       </div>
     )

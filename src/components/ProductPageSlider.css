@@ -42,7 +42,7 @@
 
 .actual-image img {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 20px;
     object-fit: contain;
 }
 
@@ -83,6 +83,10 @@
 
     .image-btn{
         display: none;
+    }
+
+    .slider {
+        display: flex;
     }
 
     .image-buttons {

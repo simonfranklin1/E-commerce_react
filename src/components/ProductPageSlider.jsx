@@ -6,6 +6,7 @@ import { MdArrowBackIosNew } from "react-icons/md"
 const Carousel = ({thumbnail, id}) => {
 
     const [index, setIndex] = useState(0);
+    
     const changeImage = (e, i) => {
       document.querySelector('.selected-image').classList.remove('selected-image');
 
@@ -13,7 +14,7 @@ const Carousel = ({thumbnail, id}) => {
       element.classList.add('selected-image');
 
       setIndex(i);
-    }
+    };
 
     const increment = () => {
       if(index === thumbnail.length - 1) {
@@ -41,10 +42,9 @@ const Carousel = ({thumbnail, id}) => {
             </div>
         </div>
         <ul className="image-buttons">
-            <li className="selected-image" onClick={(e) => changeImage(e, 0)}><img className="image-btn" src={thumbnail[0]} alt={`Imagem produto ${id}-1`}/></li>
-            <li onClick={(e) => changeImage(e, 1)}><img className="image-btn" src={thumbnail[1]} alt={`Imagem produto ${id}/2`} /></li>
-            <li onClick={(e) => changeImage(e, 2)}><img className="image-btn" src={thumbnail[2]} alt={`Imagem produto ${id}/3`} /></li>
-            <li onClick={(e) => changeImage(e, 3)}><img className="image-btn" src={thumbnail[3]} alt={`Imagem produto ${id}/4`} /></li>
+            {thumbnail.map((thumb, idx) => (
+              <li key={idx} className={index === idx ? "selected-image" : ""} onClick={(e) => changeImage(e, idx)}><img className="image-btn" src={thumb} alt={`Imagem produto ${id}/${idx}`} /></li>
+            ))}
         </ul>
     </div>
   )

@@ -5,6 +5,7 @@
 
 .orders .item-title {
     font-weight: 700;
+    margin-bottom: 1rem;
 }
 
 .orders .checkout-image {

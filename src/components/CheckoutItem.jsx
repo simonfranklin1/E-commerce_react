@@ -5,7 +5,7 @@ const CheckoutItem = ({data}) => {
 
   return (
     <div className="checkout-card">
-        <img className='checkout-image'  src={thumbnail} alt={"Image product " + id} />
+        <img className='checkout-item_image' src={thumbnail} alt={"Image product " + id} />
         <div className="checkout_info">
             <p className="item-title">
                 {title} x {quantity}

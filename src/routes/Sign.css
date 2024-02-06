@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 40px;
 }
 
 .form-container {
@@ -33,6 +33,16 @@
     gap: 1rem;
     margin-bottom: 1.5rem;
     flex: 1;
+}
+
+.form-fields label {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-fields label span {
+    font-weight: 500;
+    margin-bottom: .5rem;
 }
 
 .form-fields input {
