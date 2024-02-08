@@ -2,7 +2,7 @@ import "./ProductCard.css";
 import { Link } from "react-router-dom";
 import { formatCurrency } from "../utilities/utilities";
 
-const ProductCard = ({data}) => {
+const ProductCard = ({ data, slider }) => {
     const {
         thumbnail,
         title,
@@ -14,7 +14,7 @@ const ProductCard = ({data}) => {
 
   return (
     <Link to={`/products/${id}`}>
-      <div className={`product-card ${ women? 'women' : 'male' }`}>
+      <div className={`product-card ${ women ? 'women' : 'male' }`} style={ slider ? { width: "260px"} : { width: "100%" }}>
             <div className="product-image">
               <img src={thumbnail[0]} alt={`Image product-` + id} />
             </div>

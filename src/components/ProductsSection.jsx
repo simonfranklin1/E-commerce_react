@@ -1,8 +1,8 @@
 import './ProductsSection.css'
-import SliderCard from './SliderCard'
 import Loading from './Loading'
 import { useRef } from 'react'
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import ProductCard from './ProductCard';
 
 const ProductsSection = ({products, title, category}) => {  
     if(!products) return <Loading />
@@ -29,12 +29,12 @@ const ProductsSection = ({products, title, category}) => {
             <div className="products_section-slider" ref={sliderRef}>
                 {
                     category === 'feminino' && products.map((product) => (
-                        product.women ? <SliderCard key={product.id} data={{title: product.name, ...product}} /> : ''
+                        product.women ? <ProductCard key={product.id} data={{title: product.name, ...product}} slider={true} /> : ''
                     ))
                 }
                 {
                     category === 'masculino' && products.map((product) => (
-                        product.women ? '' : <SliderCard key={product.id} data={{title: product.name, ...product}} />
+                        product.women ? '' : <ProductCard key={product.id} data={{title: product.name, ...product}} slider={true} />
                     ))
                 }
             </div>
