@@ -4,8 +4,9 @@
     display: flex;
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+    padding: 5px;
     padding-bottom: 15px;
-    gap: .5rem;
+    gap: .8rem;
     position: relative;
 }
 
@@ -29,6 +30,7 @@
     justify-content: space-between;
     font-size: 14px;
     max-width: 160px;
+    flex: 1;
 }
 
 .item-title {
@@ -51,7 +53,8 @@
 
 .quantity-items {
     display: flex;
-    gap: .3rem;
+    width: 60px;
+    justify-content: space-between;
     align-items: center;
     position: absolute;
     bottom: 15%;

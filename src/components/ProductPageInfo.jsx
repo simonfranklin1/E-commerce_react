@@ -13,10 +13,11 @@ const ProductPageInfo = ({ product }) => {
     const { bagItems, setBagItems, user, setUser } = useContext(StoreContext);
 
     const navigate = useNavigate();
-    const [ toggleFavorite, setToggleFavorite ] = useState(false);
+    const [toggleFavorite, setToggleFavorite] = useState(false);
     const users = getLocalStorage("users_db");
 
     const [size, setSize] = useState(false);
+    const [added, setAdded] = useState(false);
 
     const handleSize = (e) => {
         const element = e.target;
@@ -51,6 +52,12 @@ const ProductPageInfo = ({ product }) => {
                 setBagItems([...bagItems, itemData]);
                 saveLocalStorage("bag", [...bagItems, itemData]);
             }
+
+            setAdded(true);
+
+            setTimeout(() => {
+                setAdded(false)
+            }, 2000)
         }
     }
 
@@ -83,7 +90,6 @@ const ProductPageInfo = ({ product }) => {
 
         } else {
             window.alert("Para favoritar algum produto, faça login.");
-            navigate("/sign-in");
         }
     }
 
@@ -117,9 +123,15 @@ const ProductPageInfo = ({ product }) => {
             </div>
 
             <div className="buttons">
-                <button className="add-cart-btn" onClick={addToBag} >
-                    Adicionar à Sacola <BsFillBagFill />
-                </button>
+                {added ? (
+                    <button className="add-cart-btn" >
+                        Produto adicionado com sucesso
+                    </button>
+                ) : (
+                    <button className="add-cart-btn" onClick={addToBag} >
+                        Adicionar à Sacola <BsFillBagFill />
+                    </button>
+                )}
 
                 <FavoriteButton favoriteItem={favoriteItem} user={user} setToggleFavorite={setToggleFavorite} toggleFavorite={toggleFavorite} product={product} />
             </div>

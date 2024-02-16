@@ -1,17 +1,17 @@
 .checkout {
     padding-top: 130px;
-    padding-bottom: 30px;
-    background-color: #f7f7f7;
+    padding-bottom: 30px;    
     display: flex;
     justify-content: center;
 }
 
-.checkout-data {
+.checkout-form {
     max-width: 700px;
     border-radius: 10px;
     text-align: center;
-    padding: 20px;
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.281);
+    background-color: #fff;
+    padding: 20px 30px;
+    box-shadow: 5px 10px 25px rgba(0, 0, 0, 0.281);
 }
 
 .checkout-data section {
@@ -86,7 +86,15 @@
     transition: .2s;
 }
 
+.checkout_button:hover {
+    opacity: .8;
+}
+
 @media (max-width: 450px) {
+    .checkout {
+        padding-top: 100px;
+    }
+
     form {
         padding: 10px;
     }

@@ -65,7 +65,7 @@ const Checkout = () => {
     <div className="checkout">
         <form onSubmit={saveOrder}>
             <h2 className="form-title">Preencha os dados para finalizar a compra</h2>
-            <div className="checkout-data">
+            <div className="checkout-form">
                 <section>
                     <div className="form-field">
                         <label>
